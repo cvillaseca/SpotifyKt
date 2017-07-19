@@ -1,7 +1,5 @@
 # SpotifyKt
-An Spotify client written in Kotlin
-
-Clean MVP Architecture. Dagger2, RxAndroid, Retrofit.
+An Spotify client written in Kotlin with Clean MVP Architecture, Dagger2, RxAndroid, Retrofit.
 
 ## Getting Started
 
