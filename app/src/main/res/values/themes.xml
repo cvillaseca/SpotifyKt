@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <style name="Theme.ActionBar" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowContentTransitions">true</item>
+    </style>
+
+    <style name="Theme.TranslucentActionBar" parent="Theme.ActionBar">
+
+        <item name="windowActionBarOverlay">true</item>-->
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:actionBarStyle">@style/Widget.ActionBar</item>
+
+        <!-- Support library compatibility -->
+        <!--<item name="windowActionBarOverlay">true</item>-->
+        <item name="actionBarStyle">@style/Widget.ActionBar</item>
+
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="Theme.TranslucentActionBar.ActionBar" />
+
+    <style name="Theme.TranslucentActionBar.ActionBar.Overlay">
+        <item name="android:actionBarStyle">@style/Widget.ActionBar.Transparent</item>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="noAnimTheme" parent="Theme.ActionBar">
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="NoActionBar" parent="noAnimTheme">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
