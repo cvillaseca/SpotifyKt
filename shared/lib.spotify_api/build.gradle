@@ -1,0 +1,10 @@
+apply from: "$rootDir/common-android-library.gradle"
+
+dependencies {
+    implementation project(Modules.cache)
+    implementation project(Modules.network)
+
+    implementation Libraries.retrofit
+    implementation Libraries.converterGson
+    implementation Libraries.rxjavaAdapter
+}

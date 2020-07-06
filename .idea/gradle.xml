@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/common" />
+            <option value="$PROJECT_DIR$/common/base.cache" />
+            <option value="$PROJECT_DIR$/common/base.navigation" />
+            <option value="$PROJECT_DIR$/common/base.network" />
+            <option value="$PROJECT_DIR$/common/base.presentation" />
+            <option value="$PROJECT_DIR$/common/base.view" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/features/feat.home" />
+            <option value="$PROJECT_DIR$/features/feat.login" />
+            <option value="$PROJECT_DIR$/features/feat.search" />
+            <option value="$PROJECT_DIR$/shared" />
+            <option value="$PROJECT_DIR$/shared/lib.spotify_api" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

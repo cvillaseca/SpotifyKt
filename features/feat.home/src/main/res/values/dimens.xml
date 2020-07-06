@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="insurance_bump_height">24dp</dimen>
+    <dimen name="insurance_bump_width">225dp</dimen>
+    <dimen name="home_header_image_height">360dp</dimen>
+    <dimen name="bottom_bar_height">57dp</dimen>
+    <dimen name="profile_header_height">76dp</dimen>
+    <dimen name="profile_header_image_size">60dp</dimen>
+    <dimen name="profile_header_border_size">64dp</dimen>
+    <dimen name="notification_badge_margin_top">8dp</dimen>
+    <dimen name="notification_badge_margin_start">14dp</dimen>
+    <dimen name="notification_badge_size">6dp</dimen>
+    <dimen name="home_bottom_bar_text_size">10sp</dimen>
+</resources>

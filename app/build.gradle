@@ -1,65 +1,77 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply plugin: 'realm-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion Versions.compileSdk
     defaultConfig {
-        applicationId "com.cvillaseca.spotifykt"
-        minSdkVersion 16
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        applicationId App.id
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode Releases.versionCode
+        versionName Releases.versionName
+        multiDexEnabled true
+
+        // To disable checking for the InstallIn annotation and make assisted modules work without,
+        // the installIn annotation, enable the compiler option:
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
+            }
         }
     }
-    kapt {
-        generateStubs = true
+
+    buildTypes {
+        release {
+            minifyEnabled true
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
     }
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(Modules.cache)
+    implementation project(Modules.network)
+    implementation project(Modules.navigation)
+    implementation project(Modules.presentation)
+    implementation project(Modules.view)
+    implementation project(Modules.spotify_api)
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+//    implementation project(Modules.login)
+    implementation project(Modules.home)
+//    implementation project(Modules.search)
 
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:design:25.3.1'
-    compile 'com.android.support:recyclerview-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    // Dagger
-    kapt 'com.google.dagger:dagger-compiler:2.5'
-    compile 'com.google.dagger:dagger:2.5'
-    // Rx
-    compile 'io.reactivex.rxjava2:rxjava:2.0.9'
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    //Retrofit
-    compile 'com.squareup.retrofit2:retrofit:2.2.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
-    compile 'com.squareup.okhttp3:okhttp:3.7.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.7.0'
-    //Butterknife
-    compile 'com.jakewharton:butterknife:8.5.1'
-    kapt 'com.jakewharton:butterknife-compiler:8.5.1'
+    implementation SupportLibraries.appcompat
+    implementation Libraries.timber
+    implementation Libraries.okhttp
+    implementation Libraries.deeplinkDispatch
+    implementation Libraries.retrofit
+    implementation Libraries.mvrx
 
-    //Image cache
-    compile 'com.squareup.picasso:picasso:2.5.2'
+    implementation Libraries.hilt
+    kapt AnnotationProcessors.hilt
 
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
+    debugImplementation Libraries.flipper
+    debugImplementation Libraries.flipperNetwork
+    debugImplementation Libraries.soLoader
 
-    testCompile 'junit:junit:4.12'
-}
-repositories {
-    mavenCentral()
+    debugImplementation Libraries.leakCanaryAndroid
+    releaseImplementation Libraries.leakCanaryAndroidNoOp
+    debugImplementation Libraries.leakCanaryAndroidSupportFragment
+
+    testImplementation TestLibraries.junit
 }

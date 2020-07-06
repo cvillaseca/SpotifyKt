@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bottom Navigation Bar -->
+    <style name="HomeBottomNavigationBar" parent="@style/Widget.MaterialComponents.BottomNavigationView.Colored">
+        <item name="itemTextAppearanceActive">@style/HomeBottomBarItemActive</item>
+        <item name="itemTextAppearanceInactive">@style/HomeBottomBarItemInactive</item>
+        <item name="itemIconTint">@drawable/bottom_bar_item_view</item>
+        <item name="itemTextColor">@drawable/bottom_bar_item_view</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:foreground">@android:color/transparent</item>
+    </style>
+
+    <style name="HomeBottomBarItemActive">
+        <item name="android:textSize">@dimen/home_bottom_bar_text_size</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="HomeBottomBarItemInactive">
+        <item name="android:textSize">@dimen/home_bottom_bar_text_size</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+</resources>

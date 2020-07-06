@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:dist="http://schemas.android.com/apk/distribution"
+          package="com.cvillaseca.spotifykt.navigation">
+    <application>
+        <activity android:name="com.cvillaseca.spotifykt.navigation.ContainerActivity" />
+    </application>
+</manifest>
+

@@ -1,0 +1,19 @@
+apply from: "$rootDir/common-android-library.gradle"
+
+dependencies {
+    implementation project(Modules.cache)
+
+    implementation Libraries.retrofit
+    implementation Libraries.okhttp
+    implementation Libraries.rxjavaAdapter
+    implementation Libraries.loggingInterceptor
+    implementation Libraries.converterGson
+    implementation Libraries.timber
+
+    implementation Libraries.hilt
+    kapt AnnotationProcessors.hilt
+
+    debugImplementation Libraries.flipperNetwork
+    debugImplementation Libraries.flipper
+
+}
