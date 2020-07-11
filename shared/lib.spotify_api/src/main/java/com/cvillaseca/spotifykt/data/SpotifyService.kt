@@ -1,13 +1,6 @@
 package com.cvillaseca.spotifykt.data
 
-import com.cvillaseca.spotifykt.data.response.AlbumResponse
-import com.cvillaseca.spotifykt.data.response.ArtistResponse
-import com.cvillaseca.spotifykt.data.response.CategoriesResponse
-import com.cvillaseca.spotifykt.data.response.NewReleasesResponse
-import com.cvillaseca.spotifykt.data.response.SearchResponse
-import com.cvillaseca.spotifykt.data.response.TopTracksResponse
-import com.cvillaseca.spotifykt.data.response.PagedResponse
-import com.cvillaseca.spotifykt.data.response.TrackEntity
+import com.cvillaseca.spotifykt.data.response.*
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -74,4 +67,14 @@ interface SpotifyApi {
         @Query("offset") offset: Int?,
         @Query("limit") limit: Int?
     ): Single<NewReleasesResponse>
+
+    @GET("browse/featured-playlists")
+    fun featuredPlaylists(
+        @Query("country") country: String,
+        @Query("locale") locale: String,
+        // Format yyyy-MM-ddTHH:mm:ss
+        @Query("timestamp") timestamp: String?,
+        @Query("offset") offset: Int?,
+        @Query("limit") limit: Int?
+    ): Single<FeaturedPlaylistsResponse>
 }

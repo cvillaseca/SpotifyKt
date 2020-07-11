@@ -7,6 +7,7 @@ import com.airbnb.mvrx.MvRxState
 import com.airbnb.mvrx.Uninitialized
 import com.cvillaseca.spotifykt.data.response.AlbumResponse
 import com.cvillaseca.spotifykt.data.response.CategoryResponse
+import com.cvillaseca.spotifykt.data.response.FeaturedPlaylistsResponse
 
 data class HomeState(
     val homeInfo: Async<HomeInfo> = Uninitialized
@@ -14,7 +15,8 @@ data class HomeState(
 
 data class HomeInfo(
     val categories: List<CategoryResponse>,
-    val newReleases: List<AlbumResponse>
+    val newReleases: List<AlbumResponse>,
+    val featuredPlaylists: FeaturedPlaylistsResponse
 )
 
 sealed class HomeSideEffect {

@@ -6,6 +6,8 @@ import com.airbnb.mvrx.Loading
 import com.airbnb.mvrx.Success
 import com.cvillaseca.spotifykt.data.response.AlbumResponse
 import com.cvillaseca.spotifykt.data.response.CategoryResponse
+import com.cvillaseca.spotifykt.data.response.FeaturedPlaylistsResponse
+import com.cvillaseca.spotifykt.data.response.PlaylistResponse
 import com.cvillaseca.spotifykt.feature.home.R
 import com.cvillaseca.spotifykt.feature.home.presentation.view.HomeCategoryCarouselItemModel_
 import com.cvillaseca.spotifykt.feature.home.presentation.view.carouselView
@@ -26,10 +28,43 @@ class HomeController(
                 carouselSkeletonView { id("skeleton3") }
             }
             is Success -> {
+                renderFeaturedPlaylists(data().featuredPlaylists)
                 renderCategories(data())
                 renderNewReleases(data())
             }
         }
+    }
+
+    private fun renderFeaturedPlaylists(playlistsInfo: FeaturedPlaylistsResponse) {
+        playlistsInfo.playlists.items
+                .mapIndexed(playlistToEpoxyModel())
+                .filterNotNull()
+                .takeIf { it.isNotEmpty() }
+                ?.let {
+                    primaryTextView {
+                        id("playlistTitle")
+                        body(playlistsInfo.message)
+                        textStyle(PrimaryTextView.TextStyle.HEADER_XS)
+                        color(R.color.grey_4)
+                        padding(Padding.Single(R.dimen.margin_typical))
+                    }
+                    carouselView {
+                        id("playlistsCarousel")
+                        hasFixedSize(true)
+                        paddingRes(R.dimen.margin_typical)
+                        models(it.toList())
+                    }
+                }
+    }
+
+    private fun playlistToEpoxyModel(): (Int, PlaylistResponse) -> HomeCategoryCarouselItemModel_? = { i, it ->
+        HomeCategoryCarouselItemModel_()
+                .id("Category$i")
+                .name(it.name)
+                .image(it.images.first().url)
+                .clickListener { _, _, _, position ->
+                    callbacks.onTopCityClick(position)
+                }
     }
 
     private fun renderCategories(data: HomeInfo) {
