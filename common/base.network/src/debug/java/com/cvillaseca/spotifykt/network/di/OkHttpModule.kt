@@ -2,10 +2,10 @@ package com.cvillaseca.spotifykt.network.di
 
 import android.content.Context
 import com.cvillaseca.spotifykt.network.auth.NetworkAuthenticator
-import com.cvillaseca.spotifykt.network.auth.OAuthAccessTokenRepository
 import com.facebook.flipper.plugins.network.FlipperOkhttpInterceptor
 import com.facebook.flipper.plugins.network.NetworkFlipperPlugin
 import com.cvillaseca.spotifykt.network.auth.interceptor.AuthInterceptor
+import com.facebook.flipper.android.AndroidFlipperClient
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,7 +17,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import java.io.File
 import java.util.concurrent.TimeUnit
-import javax.inject.Named
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
@@ -31,7 +30,6 @@ class OkHttpModule {
     fun providesOkHttpClient(
         @ApplicationContext context: Context,
         authenticationInterceptor: AuthInterceptor,
-        networkFlipperPlugin: NetworkFlipperPlugin,
         networkAuthenticator: NetworkAuthenticator
     ): OkHttpClient {
 
@@ -48,7 +46,11 @@ class OkHttpModule {
             .addInterceptor(buildLoggingInterceptor())
             .authenticator(networkAuthenticator)
             .addInterceptor(authenticationInterceptor)
-            .addNetworkInterceptor(FlipperOkhttpInterceptor(networkFlipperPlugin))
+            .addNetworkInterceptor(
+                FlipperOkhttpInterceptor(
+                    AndroidFlipperClient.getInstance(context).getPlugin(NetworkFlipperPlugin.ID)
+                )
+            )
             .cache(cache)
 
         return builder.build()
@@ -58,8 +60,7 @@ class OkHttpModule {
     @Singleton
     @OAuthOkHttp
     fun providesOkHttpOauthClient(
-        @ApplicationContext context: Context,
-        networkFlipperPlugin: NetworkFlipperPlugin
+        @ApplicationContext context: Context
     ): OkHttpClient {
 
         // Install an HTTP cache in the application cache directory.
@@ -73,7 +74,11 @@ class OkHttpModule {
             .followRedirects(true)
             .followSslRedirects(true)
             .addInterceptor(buildLoggingInterceptor())
-            .addNetworkInterceptor(FlipperOkhttpInterceptor(networkFlipperPlugin))
+            .addNetworkInterceptor(
+                FlipperOkhttpInterceptor(
+                    AndroidFlipperClient.getInstance(context).getPlugin(NetworkFlipperPlugin.ID)
+                )
+            )
             .cache(cache)
 
         return builder.build()
