@@ -52,9 +52,8 @@ class HomeFragment : BaseMvRxFragment(R.layout.activity_home), HomeController.Ad
         //        searchView.setSubmitButtonEnabled(true);
         searchView?.setOnQueryTextListener(this)
 
-        super.onCreateOptionsMenu(menu, inflater);
+        super.onCreateOptionsMenu(menu, inflater)
     }
-
 
     override fun invalidate() = withState(viewModel) {
         controller.setData(it.homeInfo)

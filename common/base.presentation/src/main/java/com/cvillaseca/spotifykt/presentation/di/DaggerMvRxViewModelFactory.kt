@@ -42,11 +42,15 @@ abstract class DaggerMvRxViewModelFactory<VM : BaseMvRxViewModel<S>, S : MvRxSta
         return createViewModel(viewModelContext.activity, state)
     }
 
-    private fun <VM : BaseMvRxViewModel<S>, S : MvRxState> createViewModel(fragmentActivity: FragmentActivity, state: S): VM {
+    private fun <VM : BaseMvRxViewModel<S>, S : MvRxState> createViewModel(
+        fragmentActivity: FragmentActivity,
+        state: S
+    ): VM {
         val viewModelFactoryMap = EntryPoints.get(
             fragmentActivity.applicationContext, DaggerMvrxViewModelFactoryEntryPoint::class.java
         ).viewModelFactories
         val viewModelFactory = viewModelFactoryMap[viewModelClass]
+
         @Suppress("UNCHECKED_CAST")
         val castedViewModelFactory = viewModelFactory as? AssistedViewModelFactory<VM, S>
         val viewModel = castedViewModelFactory?.create(state)

@@ -2,7 +2,6 @@ package com.cvillaseca.spotifykt.data.response
 
 import com.google.gson.annotations.SerializedName
 
-
 data class TrackEntity(
     @SerializedName("id")
     val id: String,
@@ -35,4 +34,3 @@ data class TrackEntity(
     @SerializedName("uri")
     val uri: String
 )
-        

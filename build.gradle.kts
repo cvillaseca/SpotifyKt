@@ -8,20 +8,19 @@ buildscript {
         maven { url = uri("https://maven.fabric.io/public") }
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.0.0")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.72")
+        classpath("com.android.tools.build:gradle:4.0.1")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
         classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}")
-
     }
 }
 
 plugins {
-    id("io.gitlab.arturbosch.detekt").version("1.10.0")
-    id("name.remal.check-dependency-updates").version("1.0.199")
+    id("io.gitlab.arturbosch.detekt").version("1.11.0")
+    id("name.remal.check-dependency-updates").version("1.0.211")
 }
 
 dependencies {
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.10.0")
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.11.0")
 }
 
 allprojects {

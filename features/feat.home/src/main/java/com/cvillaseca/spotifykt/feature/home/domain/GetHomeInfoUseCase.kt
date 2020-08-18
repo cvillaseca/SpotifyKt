@@ -29,7 +29,7 @@ class GetHomeInfoUseCase @Inject constructor(
 }
 
 data class HomeDomainModel(
-        val categories: List<CategoryResponse>,
-        val newReleases: List<AlbumResponse>,
-        val featuredPlaylists: FeaturedPlaylistsResponse
+    val categories: List<CategoryResponse>,
+    val newReleases: List<AlbumResponse>,
+    val featuredPlaylists: FeaturedPlaylistsResponse
 )

@@ -1,7 +1,6 @@
 package com.cvillaseca.spotifykt.feature.home.presentation
 
 import com.airbnb.mvrx.BaseMvRxViewModel
-import com.cvillaseca.spotifykt.feature.home.domain.GetCategoriesUseCase
 import com.cvillaseca.spotifykt.feature.home.domain.GetHomeInfoUseCase
 import com.cvillaseca.spotifykt.presentation.di.AssistedViewModelFactory
 import com.cvillaseca.spotifykt.presentation.di.DaggerMvRxViewModelFactory

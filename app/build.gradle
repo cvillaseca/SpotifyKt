@@ -50,6 +50,7 @@ dependencies {
     implementation project(Modules.presentation)
     implementation project(Modules.view)
     implementation project(Modules.spotify_api)
+    implementation project(Modules.debug_tools)
 
 //    implementation project(Modules.login)
     implementation project(Modules.home)

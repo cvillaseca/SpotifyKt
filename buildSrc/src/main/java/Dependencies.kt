@@ -10,6 +10,7 @@ object Modules {
     const val presentation = ":common:base.presentation"
     const val navigation = ":common:base.navigation"
     const val view = ":common:base.view"
+    const val debug_tools = ":common:base.debug_tools"
 
     const val spotify_api = ":shared:lib.spotify_api"
 
@@ -49,7 +50,8 @@ object Versions {
 
     const val ktx = "1.2.0"
 
-    const val kotlin                = "1.3.21"
+    // Waiting for a fix https://github.com/airbnb/MvRx/issues/433 Fails with 1.4.0
+    const val kotlin                = "1.3.72"
     const val retrofit              = "2.7.1"
     const val okhttp                = "4.3.1"
     const val rxjava                = "2.2.7"

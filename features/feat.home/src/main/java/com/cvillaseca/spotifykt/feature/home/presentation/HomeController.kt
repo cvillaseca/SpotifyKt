@@ -136,4 +136,3 @@ class HomeController(
         fun onTopCityClick(position: Int)
     }
 }
-

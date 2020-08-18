@@ -22,5 +22,4 @@ class OAuthAccessTokenRepository @Inject constructor(
         localToken?.refreshToken?.let {
             remoteDatasource.refreshToken(authHeader, it)
         } ?: remoteDatasource.getToken(authHeader)
-
 }

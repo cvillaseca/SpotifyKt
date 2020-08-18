@@ -1,6 +1,14 @@
 package com.cvillaseca.spotifykt.data
 
-import com.cvillaseca.spotifykt.data.response.*
+import com.cvillaseca.spotifykt.data.response.AlbumResponse
+import com.cvillaseca.spotifykt.data.response.ArtistResponse
+import com.cvillaseca.spotifykt.data.response.CategoriesResponse
+import com.cvillaseca.spotifykt.data.response.FeaturedPlaylistsResponse
+import com.cvillaseca.spotifykt.data.response.NewReleasesResponse
+import com.cvillaseca.spotifykt.data.response.PagedResponse
+import com.cvillaseca.spotifykt.data.response.SearchResponse
+import com.cvillaseca.spotifykt.data.response.TopTracksResponse
+import com.cvillaseca.spotifykt.data.response.TrackEntity
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Headers

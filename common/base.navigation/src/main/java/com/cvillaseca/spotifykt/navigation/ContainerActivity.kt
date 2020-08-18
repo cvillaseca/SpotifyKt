@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.cvillaseca.spotifykt.debugtools.DebugTools
 
 class ContainerActivity : AppCompatActivity() {
 
@@ -37,7 +38,7 @@ class ContainerActivity : AppCompatActivity() {
         // allow rotation on debug builds for testing
         val orientation: Int =
             when {
-                BuildConfig.DEBUG -> ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
+                DebugTools.isDebug() -> ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
                 else -> ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
             }
         requestedOrientation = orientation

@@ -15,7 +15,10 @@ class AuthInterceptor @Inject constructor(
 
         val token: Token? = oAuthAccessTokenRepository.localToken
         if (token != null) {
-            request = chain.request().newBuilder().addHeader(NetworkConstants.AUTHORIZATION, NetworkConstants.BEARER + " " + token.accessToken).build()
+            request = chain.request().newBuilder().addHeader(
+                NetworkConstants.AUTHORIZATION,
+                NetworkConstants.BEARER + " " + token.accessToken
+            ).build()
         }
 
         return chain.proceed(request)

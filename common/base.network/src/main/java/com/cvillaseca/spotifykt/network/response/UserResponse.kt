@@ -1,6 +1,6 @@
 package com.cvillaseca.spotifykt.network.response
 
-import java.util.*
+import java.util.Date
 
 data class UserResponse(
     var id: String,

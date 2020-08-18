@@ -1,11 +1,7 @@
 package com.cvillaseca.spotifykt.presentation.core
 
-import android.content.Intent
-import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.cvillaseca.spotifykt.presentation.BuildConfig
-import com.cvillaseca.spotifykt.presentation.core.ClassRegistry.loadIntent
 import com.cvillaseca.spotifykt.presentation.extensions.replaceFragment
 
 class ContainerActivity : AppCompatActivity() {

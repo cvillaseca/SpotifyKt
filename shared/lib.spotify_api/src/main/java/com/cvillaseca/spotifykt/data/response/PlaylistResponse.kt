@@ -22,7 +22,7 @@ data class PlaylistResponse(
     @SerializedName("public")
     val public: Boolean?,
     @SerializedName("snapshot_id")
-    val snapshot_id: String,
+    val snapshotId: String,
 //    @SerializedName("tracks")
 //    val tracks: String?,
     @SerializedName("type")
