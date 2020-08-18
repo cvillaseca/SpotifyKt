@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="margin_double">32dp</dimen>
+    <dimen name="margin_large">24dp</dimen>
+    <dimen name="margin_typical">16dp</dimen>
+    <dimen name="margin_inset">12dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_tiny">4dp</dimen>
+    <dimen name="margin_tinier">2dp</dimen>
+
+    <dimen name="home_item_size">160dp</dimen>
+</resources>

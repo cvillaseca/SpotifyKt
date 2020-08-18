@@ -1,0 +1,17 @@
+apply from: "$rootDir/common-android-library.gradle"
+
+dependencies {
+    implementation Libraries.lifecycleExtensions
+    kapt Libraries.lifecycleCompiler
+
+    implementation SupportLibraries.materialDesign
+
+    implementation Libraries.hilt
+    kapt AnnotationProcessors.hilt
+
+    implementation Libraries.mvrx
+    implementation Libraries.assistedInject
+    kapt AnnotationProcessors.assistedInject
+
+    testImplementation TestLibraries.lifecycleTesting
+}

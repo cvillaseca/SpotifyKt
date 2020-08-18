@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>ComplexMethod:Padding.kt$fun View.setViewPadding(padding: Padding)</ID>
+    <ID>FunctionOnlyReturningConstant:HomeViewModel.kt$HomeViewModel$fun onQueryTextChange(newText: String?): Boolean</ID>
+  </CurrentIssues>
+</SmellBaseline>

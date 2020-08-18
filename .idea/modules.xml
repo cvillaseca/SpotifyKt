@@ -2,8 +2,37 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SpotifyKt.iml" filepath="$PROJECT_DIR$/SpotifyKt.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Projects-SpotifyKt.iml" filepath="$PROJECT_DIR$/.idea/modules/Projects-SpotifyKt.iml" group="SpotifyKt" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Projects-SpotifyKt_buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/Projects-SpotifyKt_buildSrc.iml" group="SpotifyKt/SpotifyKt_buildSrc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpotifyKt.iml" filepath="$PROJECT_DIR$/.idea/modules/SpotifyKt.iml" group="SpotifyKt" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/SpotifyKt-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/SpotifyKt-app.iml" group="SpotifyKt/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/SpotifyKt-common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/SpotifyKt-common.iml" group="SpotifyKt/common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/SpotifyKt-features.iml" filepath="$PROJECT_DIR$/.idea/modules/features/SpotifyKt-features.iml" group="SpotifyKt/features" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/SpotifyKt-shared.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/SpotifyKt-shared.iml" group="SpotifyKt/shared" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/base.cache/SpotifyKt.common-base.cache.iml" filepath="$PROJECT_DIR$/.idea/modules/common/base.cache/SpotifyKt.common-base.cache.iml" group="SpotifyKt/common/base.cache" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/base.navigation/SpotifyKt.common-base.navigation.iml" filepath="$PROJECT_DIR$/.idea/modules/common/base.navigation/SpotifyKt.common-base.navigation.iml" group="SpotifyKt/common/base.navigation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/base.network/SpotifyKt.common-base.network.iml" filepath="$PROJECT_DIR$/.idea/modules/common/base.network/SpotifyKt.common-base.network.iml" group="SpotifyKt/common/base.network" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/base.presentation/SpotifyKt.common-base.presentation.iml" filepath="$PROJECT_DIR$/.idea/modules/common/base.presentation/SpotifyKt.common-base.presentation.iml" group="SpotifyKt/common/base.presentation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/base.view/SpotifyKt.common-base.view.iml" filepath="$PROJECT_DIR$/.idea/modules/common/base.view/SpotifyKt.common-base.view.iml" group="SpotifyKt/common/base.view" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/feat.home/SpotifyKt.features-feat.home.iml" filepath="$PROJECT_DIR$/.idea/modules/features/feat.home/SpotifyKt.features-feat.home.iml" group="SpotifyKt/features/feat.home" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/feat.login/SpotifyKt.features-feat.login.iml" filepath="$PROJECT_DIR$/.idea/modules/features/feat.login/SpotifyKt.features-feat.login.iml" group="SpotifyKt/features/feat.login" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/feat.search/SpotifyKt.features-feat.search.iml" filepath="$PROJECT_DIR$/.idea/modules/features/feat.search/SpotifyKt.features-feat.search.iml" group="SpotifyKt/features/feat.search" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/lib.spotify_api/SpotifyKt.shared-lib.spotify_api.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/lib.spotify_api/SpotifyKt.shared-lib.spotify_api.iml" group="SpotifyKt/shared/lib.spotify_api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/SpotifyKt_buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/SpotifyKt_buildSrc.iml" group="SpotifyKt/SpotifyKt_buildSrc" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="SpotifyKt/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/base.cache/base.cache.iml" filepath="$PROJECT_DIR$/.idea/modules/common/base.cache/base.cache.iml" group="SpotifyKt/common/base.cache" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/base.debug_tools/base.debug_tools.iml" filepath="$PROJECT_DIR$/.idea/modules/common/base.debug_tools/base.debug_tools.iml" group="SpotifyKt/common/base.debug_tools" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/base.navigation/base.navigation.iml" filepath="$PROJECT_DIR$/.idea/modules/common/base.navigation/base.navigation.iml" group="SpotifyKt/common/base.navigation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/base.network/base.network.iml" filepath="$PROJECT_DIR$/.idea/modules/common/base.network/base.network.iml" group="SpotifyKt/common/base.network" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/base.presentation/base.presentation.iml" filepath="$PROJECT_DIR$/.idea/modules/common/base.presentation/base.presentation.iml" group="SpotifyKt/common/base.presentation" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/base.view/base.view.iml" filepath="$PROJECT_DIR$/.idea/modules/common/base.view/base.view.iml" group="SpotifyKt/common/base.view" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/common.iml" group="SpotifyKt/common" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/feat.home/feat.home.iml" filepath="$PROJECT_DIR$/.idea/modules/features/feat.home/feat.home.iml" group="SpotifyKt/features/feat.home" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/feat.login/feat.login.iml" filepath="$PROJECT_DIR$/.idea/modules/features/feat.login/feat.login.iml" group="SpotifyKt/features/feat.login" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/feat.search/feat.search.iml" filepath="$PROJECT_DIR$/.idea/modules/features/feat.search/feat.search.iml" group="SpotifyKt/features/feat.search" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/features/features.iml" filepath="$PROJECT_DIR$/.idea/modules/features/features.iml" group="SpotifyKt/features" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/lib.spotify_api/lib.spotify_api.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/lib.spotify_api/lib.spotify_api.iml" group="SpotifyKt/shared/lib.spotify_api" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/shared.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/shared.iml" group="SpotifyKt/shared" />
     </modules>
   </component>
 </project>
