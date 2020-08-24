@@ -5,7 +5,9 @@ import android.content.pm.ActivityInfo
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.cvillaseca.spotifykt.debugtools.DebugTools
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ContainerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

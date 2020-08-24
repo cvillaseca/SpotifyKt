@@ -1,10 +1,2 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:dist="http://schemas.android.com/apk/distribution"
-          package="com.cvillaseca.spotifykt.login">
-    <application>
-        <activity
-                android:name="com.cvillaseca.spotifykt.search.presentation.LoginFragment"
-                android:screenOrientation="portrait"/>
-    </application>
-</manifest>
-
+    package="com.cvillaseca.spotifykt.login" />

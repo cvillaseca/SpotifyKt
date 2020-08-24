@@ -1,11 +1,29 @@
 apply from: "$rootDir/common-android-library.gradle"
 
+android {
+
+    defaultConfig.javaCompileOptions {
+        annotationProcessorOptions {
+            arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
+        }
+    }
+//
+//    buildFeatures {
+//        // Enables Jetpack Compose for this module
+//        compose true
+//    }
+//
+//    composeOptions {
+//        kotlinCompilerVersion "1.4.0"
+//        kotlinCompilerExtensionVersion "${Versions.compose}"
+//    }
+}
+
 dependencies {
     implementation project(Modules.cache)
     implementation project(Modules.network)
     implementation project(Modules.navigation)
     implementation project(Modules.presentation)
-//    implementation project(Modules.usermanager)
 
     implementation SupportLibraries.appcompat
     implementation SupportLibraries.constraintLayout
@@ -14,7 +32,6 @@ dependencies {
     implementation Libraries.lifecycleExtensions
     implementation Libraries.rxjava
     implementation Libraries.rxkotlin
-    implementation Libraries.retrofit
 
     implementation Libraries.mvrx
     implementation Libraries.assistedInject
@@ -22,6 +39,8 @@ dependencies {
 
     implementation Libraries.hilt
     kapt AnnotationProcessors.hilt
+
+//    implementation Libraries.composeTooling
 
     testImplementation TestLibraries.junit
     testImplementation TestLibraries.assertjCore

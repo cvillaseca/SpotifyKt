@@ -7,12 +7,12 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import androidx.appcompat.widget.SearchView
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.core.view.MenuItemCompat
 import com.airbnb.mvrx.BaseMvRxFragment
 import com.airbnb.mvrx.fragmentViewModel
 import com.airbnb.mvrx.withState
 import com.cvillaseca.spotifykt.feature.home.R
+import com.cvillaseca.spotifykt.navigation.features.LoginNavigation
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -59,11 +59,17 @@ class HomeFragment : BaseMvRxFragment(R.layout.activity_home), HomeController.Ad
         controller.setData(it.homeInfo)
     }
 
-    override fun onListCarClick() {
+    override fun onPlaylistClicked(position: Int) {
+        startActivity(
+            LoginNavigation.newIntent()
+        )
+    }
+
+    override fun onNewReleaseClicked(position: Int) {
         TODO("Not yet implemented")
     }
 
-    override fun onTopCityClick(position: Int) {
+    override fun onCategoryClicked(position: Int) {
         TODO("Not yet implemented")
     }
 

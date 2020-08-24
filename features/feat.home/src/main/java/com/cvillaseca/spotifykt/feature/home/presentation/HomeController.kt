@@ -63,7 +63,7 @@ class HomeController(
                 .name(it.name)
                 .image(it.images.first().url)
                 .clickListener { _, _, _, position ->
-                    callbacks.onTopCityClick(position)
+                    callbacks.onPlaylistClicked(position)
                 }
     }
 
@@ -95,7 +95,7 @@ class HomeController(
             .name(it.name)
             .image(it.icons.first().url)
             .clickListener { _, _, _, position ->
-                callbacks.onTopCityClick(position)
+                callbacks.onCategoryClicked(position)
             }
     }
 
@@ -127,12 +127,13 @@ class HomeController(
             .name(it.name)
             .image(it.images.first().url)
             .clickListener { _, _, _, position ->
-                callbacks.onTopCityClick(position)
+                callbacks.onNewReleaseClicked(position)
             }
     }
 
     interface AdapterCallbacks {
-        fun onListCarClick()
-        fun onTopCityClick(position: Int)
+        fun onPlaylistClicked(position: Int)
+        fun onNewReleaseClicked(position: Int)
+        fun onCategoryClicked(position: Int)
     }
 }

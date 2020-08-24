@@ -7,6 +7,5 @@ include(":app",
         ":common:base.debug_tools",
         ":shared:lib.spotify_api",
         ":features:feat.login",
-        ":features:feat.home",
-        ":features:feat.search"
+        ":features:feat.home"
 )

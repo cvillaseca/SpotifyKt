@@ -16,7 +16,6 @@ object Modules {
 
     const val login = ":features:feat.login"
     const val home = ":features:feat.home"
-    const val search = ":features:feat.search"
 }
 
 object Releases {
@@ -70,7 +69,7 @@ object Versions {
     const val mockitoKotlin         = "2.1.0"
     const val timber                = "4.7.1"
     const val mvrx                  = "2.0.0-alpha2"
-    const val compose               = "0.1.0-dev10"
+    const val compose               = "0.1.0-dev17"
     const val hilt                  = "2.28-alpha"
     const val assistInject          = "0.5.2"
     const val epoxy                 = "3.11.0"
@@ -123,7 +122,7 @@ object Libraries {
     const val mvrxTesting               = "com.airbnb.android:mvrx-testing:${Versions.mvrx}"
     const val mvrxLauncher              = "com.airbnb.android:mvrx-launcher:${Versions.mvrx}"
 
-    const val compose                   = "androidx.compose:compose-runtime:${Versions.compose}"
+    const val composeCore                   = "androidx.ui:ui-core:${Versions.compose}"
     const val composeFramework          = "androidx.ui:ui-framework:${Versions.compose}"
     const val composeTooling            = "androidx.ui:ui-tooling:${Versions.compose}"
     const val composeLayout             = "androidx.ui:ui-layout:${Versions.compose}"

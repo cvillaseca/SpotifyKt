@@ -52,9 +52,8 @@ dependencies {
     implementation project(Modules.spotify_api)
     implementation project(Modules.debug_tools)
 
-//    implementation project(Modules.login)
+    implementation project(Modules.login)
     implementation project(Modules.home)
-//    implementation project(Modules.search)
 
     implementation SupportLibraries.appcompat
     implementation Libraries.timber

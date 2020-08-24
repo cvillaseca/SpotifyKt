@@ -13,30 +13,40 @@ import com.cvillaseca.spotifykt.login.R
 import com.cvillaseca.spotifykt.presentation.hideKeyboard
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_login.*
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class LoginFragment : BaseMvRxFragment(R.layout.activity_login) {
 
-    @Inject
-    lateinit var viewModelFactory: LoginViewModel.Factory
+    private val viewModel: LoginViewModel by fragmentViewModel()
 
     private var dialog: ProgressDialog? = null
-
-    private val viewModel: LoginViewModel by fragmentViewModel()
 
     override fun invalidate() = withState(viewModel) {
         if (it.loggedIn is Loading) loading()
     }
 
+//    override fun onCreateView(
+//        inflater: LayoutInflater,
+//        container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//        // Inflate the layout for this fragment
+//        val fragmentView = inflater.inflate(R.layout.activity_login, container, false)
+//
+//        (fragmentView as ViewGroup).setContent {
+//            Text("Jetpack Compose")
+//        }
+//        return fragmentView
+//    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        login_bt.setOnClickListener {
-            viewModel.login(
-                username.text.toString(),
-                password.text.toString()
-            )
-        }
+//        login_bt.setOnClickListener {
+//            viewModel.login(
+//                username.text.toString(),
+//                password.text.toString()
+//            )
+//        }
         subscribe()
     }
 
