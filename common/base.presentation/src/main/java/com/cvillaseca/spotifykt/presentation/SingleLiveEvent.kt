@@ -12,11 +12,14 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
 
     @MainThread
     override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
-        super.observe(owner, Observer<T> { t ->
-            if (pending.compareAndSet(true, false)) {
-                observer.onChanged(t)
+        super.observe(
+            owner,
+            Observer<T> { t ->
+                if (pending.compareAndSet(true, false)) {
+                            observer.onChanged(t)
+                        }
             }
-        })
+        )
     }
 
     @MainThread

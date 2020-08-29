@@ -61,8 +61,10 @@ class LoginFragment : BaseMvRxFragment(R.layout.activity_login) {
     private fun loading() {
         requireActivity().hideKeyboard()
         dialog = ProgressDialog.show(
-            requireContext(), "",
-            "Loading. Please wait...", true
+            requireContext(),
+            "",
+            "Loading. Please wait...",
+            true
         )
         dialog?.show()
     }

@@ -15,12 +15,12 @@ buildscript {
 }
 
 plugins {
-    id("io.gitlab.arturbosch.detekt").version("1.11.1")
+    id("io.gitlab.arturbosch.detekt").version(Versions.detekt)
     id("name.remal.check-dependency-updates").version("1.0.211")
 }
 
 dependencies {
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.11.1")
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.detekt}")
 }
 
 allprojects {

@@ -73,6 +73,7 @@ object Versions {
     const val hilt                  = "2.28-alpha"
     const val assistInject          = "0.5.2"
     const val epoxy                 = "3.11.0"
+    const val detekt                = "1.12.0"
 }
 
 object Libraries {

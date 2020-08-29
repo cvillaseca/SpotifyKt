@@ -47,7 +47,8 @@ abstract class DaggerMvRxViewModelFactory<VM : BaseMvRxViewModel<S>, S : MvRxSta
         state: S
     ): VM {
         val viewModelFactoryMap = EntryPoints.get(
-            fragmentActivity.applicationContext, DaggerMvrxViewModelFactoryEntryPoint::class.java
+            fragmentActivity.applicationContext,
+            DaggerMvrxViewModelFactoryEntryPoint::class.java
         ).viewModelFactories
         val viewModelFactory = viewModelFactoryMap[viewModelClass]
 
