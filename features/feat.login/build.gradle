@@ -8,6 +8,11 @@ android {
         }
     }
 
+    kotlinOptions {
+        jvmTarget = '1.8'
+        useIR = true
+    }
+
     buildFeatures {
         // Enables Jetpack Compose for this module
         compose true
