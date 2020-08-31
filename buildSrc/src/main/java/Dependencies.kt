@@ -69,7 +69,7 @@ object Versions {
     const val mockitoKotlin         = "2.1.0"
     const val timber                = "4.7.1"
     const val mvrx                  = "2.0.0-alpha2"
-    const val compose               = "0.1.0-dev17"
+    const val compose               = "1.0.0-alpha01"
     const val hilt                  = "2.28-alpha"
     const val assistInject          = "0.5.2"
     const val epoxy                 = "3.11.0"
@@ -78,7 +78,7 @@ object Versions {
 
 object Libraries {
     //ApplicationLibraries
-    const val kotlin                    = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+    const val kotlin                    = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
 
     const val retrofit                  = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val okhttp                    = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
@@ -123,13 +123,14 @@ object Libraries {
     const val mvrxTesting               = "com.airbnb.android:mvrx-testing:${Versions.mvrx}"
     const val mvrxLauncher              = "com.airbnb.android:mvrx-launcher:${Versions.mvrx}"
 
-    const val composeCore                   = "androidx.ui:ui-core:${Versions.compose}"
-    const val composeFramework          = "androidx.ui:ui-framework:${Versions.compose}"
-    const val composeTooling            = "androidx.ui:ui-tooling:${Versions.compose}"
-    const val composeLayout             = "androidx.ui:ui-layout:${Versions.compose}"
-    const val composeMaterial           = "androidx.ui:ui-material:${Versions.compose}"
-    const val composeFoundation         = "androidx.ui:ui-foundation:${Versions.compose}"
-    const val composeAnimation          = "androidx.ui:ui-animation:${Versions.compose}"
+    const val composeCore               = "androidx.compose.runtime:runtime:${Versions.compose}"
+    const val composeFramework          = "androidx.compose.ui:ui:${Versions.compose}"
+    const val composeTooling            = "androidx.compose.foundation:foundation:${Versions.compose}"
+    const val composeLayout             = "androidx.compose.foundation:foundation-layout:${Versions.compose}"
+    const val composeMaterial           = "androidx.compose.material:material:${Versions.compose}"
+    const val composeFoundation         = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
+    const val composeAnimation          = "androidx.ui:ui-tooling:${Versions.compose}"
+    const val materialComposeAdapter    = "com.google.android.material:compose-theme-adapter:${Versions.compose}"
 
     const val hilt                      = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val epoxy                     = "com.airbnb.android:epoxy:${Versions.epoxy}"

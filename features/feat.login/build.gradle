@@ -7,16 +7,16 @@ android {
             arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
         }
     }
-//
-//    buildFeatures {
-//        // Enables Jetpack Compose for this module
-//        compose true
-//    }
-//
-//    composeOptions {
-//        kotlinCompilerVersion "1.4.0"
-//        kotlinCompilerExtensionVersion "${Versions.compose}"
-//    }
+
+    buildFeatures {
+        // Enables Jetpack Compose for this module
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerVersion Versions.kotlin
+        kotlinCompilerExtensionVersion Versions.compose
+    }
 }
 
 dependencies {
@@ -40,7 +40,14 @@ dependencies {
     implementation Libraries.hilt
     kapt AnnotationProcessors.hilt
 
-//    implementation Libraries.composeTooling
+    implementation Libraries.composeCore
+    implementation Libraries.composeFramework
+    implementation Libraries.composeTooling
+    implementation Libraries.composeLayout
+    implementation Libraries.composeMaterial
+    implementation Libraries.composeFoundation
+    implementation Libraries.composeAnimation
+    implementation Libraries.materialComposeAdapter
 
     testImplementation TestLibraries.junit
     testImplementation TestLibraries.assertjCore
