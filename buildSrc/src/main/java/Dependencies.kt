@@ -39,8 +39,8 @@ object Versions {
 
     const val fabric = "1.27.1"
 
-    const val appcompat = "1.1.0"
-    const val materialDesign = "1.0.0"
+    const val appcompat = "1.2.0"
+    const val materialDesign = "1.2.1"
     const val cardview = "1.0.0"
     const val recyclerview = "1.0.0"
     const val maps = "15.0.1"
@@ -50,7 +50,7 @@ object Versions {
     const val ktx = "1.2.0"
 
     // Waiting for a fix https://github.com/airbnb/MvRx/issues/433 Fails with 1.4.0
-    const val kotlin                = "1.3.72"
+    const val kotlin                = "1.4.0"
     const val retrofit              = "2.7.1"
     const val okhttp                = "4.3.1"
     const val rxjava                = "2.2.7"
@@ -69,7 +69,7 @@ object Versions {
     const val mockitoKotlin         = "2.1.0"
     const val timber                = "4.7.1"
     const val mvrx                  = "2.0.0-alpha2"
-    const val compose               = "1.0.0-alpha01"
+    const val compose               = "1.0.0-alpha02"
     const val hilt                  = "2.28-alpha"
     const val assistInject          = "0.5.2"
     const val epoxy                 = "3.11.0"
@@ -78,7 +78,7 @@ object Versions {
 
 object Libraries {
     //ApplicationLibraries
-    const val kotlin                    = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
+    const val kotlin                    = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.kotlin}"
 
     const val retrofit                  = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val okhttp                    = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
@@ -123,14 +123,9 @@ object Libraries {
     const val mvrxTesting               = "com.airbnb.android:mvrx-testing:${Versions.mvrx}"
     const val mvrxLauncher              = "com.airbnb.android:mvrx-launcher:${Versions.mvrx}"
 
-    const val composeCore               = "androidx.compose.runtime:runtime:${Versions.compose}"
-    const val composeFramework          = "androidx.compose.ui:ui:${Versions.compose}"
-    const val composeTooling            = "androidx.compose.foundation:foundation:${Versions.compose}"
-    const val composeLayout             = "androidx.compose.foundation:foundation-layout:${Versions.compose}"
     const val composeMaterial           = "androidx.compose.material:material:${Versions.compose}"
-    const val composeFoundation         = "androidx.compose.runtime:runtime-livedata:${Versions.compose}"
-    const val composeAnimation          = "androidx.ui:ui-tooling:${Versions.compose}"
-    const val materialComposeAdapter    = "com.google.android.material:compose-theme-adapter:${Versions.compose}"
+    const val composeUI                 = "androidx.compose.ui:ui:${Versions.compose}"
+    const val composeTooling            = "androidx.ui:ui-tooling:${Versions.compose}"
 
     const val hilt                      = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val epoxy                     = "com.airbnb.android:epoxy:${Versions.epoxy}"

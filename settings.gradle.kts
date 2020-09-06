@@ -1,4 +1,5 @@
 include(":app",
+        ":featureTester",
         ":common:base.cache",
         ":common:base.network",
         ":common:base.presentation",

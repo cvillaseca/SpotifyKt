@@ -1,0 +1,27 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.cvillaseca.spotifykt.tester">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application android:allowBackup="false"
+                 android:name=".TesterApplication"
+                 android:label="@string/app_name"
+                 android:icon="@mipmap/ic_launcher"
+                 android:roundIcon="@mipmap/ic_launcher_round"
+                 android:supportsRtl="true"
+                 tools:replace="icon, label, allowBackup"
+                 android:theme="@style/Theme.SpotifyKt.Light">
+<!--        <activity-->
+<!--            android:name="com.cvillaseca.spotifykt.login.presentation.LoginActivity"-->
+<!--            android:label="@string/title_activity_login"-->
+<!--            android:theme="@style/Theme.SpotifyKt.NoActionBar">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+
+    </application>
+</manifest>

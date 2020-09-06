@@ -6,12 +6,12 @@ apply plugin: 'dagger.hilt.android.plugin'
 
 android {
     compileSdkVersion Versions.compileSdk
+
     defaultConfig {
-        applicationId App.id
         minSdkVersion Versions.minSdk
         targetSdkVersion Versions.targetSdk
-        versionCode Releases.versionCode
-        versionName Releases.versionName
+        versionCode 1
+        versionName "1.0.0"
         multiDexEnabled true
 
         // To disable checking for the InstallIn annotation and make assisted modules work without,
@@ -20,6 +20,16 @@ android {
             annotationProcessorOptions {
                 arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
             }
+        }
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+        kotlinOptions {
+            jvmTarget = "1.8"
+            useIR = true
         }
     }
 
@@ -31,16 +41,6 @@ android {
 
     testOptions {
         unitTests.returnDefaultValues = true
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-        useIR = true
     }
 }
 
@@ -54,7 +54,6 @@ dependencies {
     implementation project(Modules.debug_tools)
 
     implementation project(Modules.login)
-    implementation project(Modules.home)
 
     implementation SupportLibraries.appcompat
     implementation Libraries.timber

@@ -1,5 +1,23 @@
 apply from: "$rootDir/common-android-library.gradle"
 
+android {
+
+    buildFeatures {
+        // Enables Jetpack Compose for this module
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerVersion Versions.kotlin
+        kotlinCompilerExtensionVersion Versions.compose
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        useIR = true
+    }
+}
+
 dependencies {
     implementation SupportLibraries.constraintLayout
 
@@ -10,6 +28,9 @@ dependencies {
 
     kapt AnnotationProcessors.epoxy
     kapt Libraries.glideCompiler
+
+    implementation Libraries.composeUI
+    implementation Libraries.composeMaterial
 
     implementation SupportLibraries.materialDesign
 }
