@@ -10,7 +10,7 @@ buildscript {
         maven { url = uri("https://maven.fabric.io/public") }
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.2.0-alpha07")
+        classpath("com.android.tools.build:gradle:4.2.0-alpha11")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
         classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}")
     }

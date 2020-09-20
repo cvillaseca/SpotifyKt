@@ -49,7 +49,6 @@ object Versions {
 
     const val ktx = "1.2.0"
 
-    // Waiting for a fix https://github.com/airbnb/MvRx/issues/433 Fails with 1.4.0
     const val kotlin                = "1.4.0"
     const val retrofit              = "2.7.1"
     const val okhttp                = "4.3.1"
@@ -69,7 +68,7 @@ object Versions {
     const val mockitoKotlin         = "2.1.0"
     const val timber                = "4.7.1"
     const val mvrx                  = "2.0.0-alpha2"
-    const val compose               = "1.0.0-alpha02"
+    const val compose               = "1.0.0-alpha03"
     const val hilt                  = "2.28-alpha"
     const val assistInject          = "0.5.2"
     const val epoxy                 = "3.11.0"
@@ -130,6 +129,8 @@ object Libraries {
     const val hilt                      = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val epoxy                     = "com.airbnb.android:epoxy:${Versions.epoxy}"
     const val assistedInject            = "com.squareup.inject:assisted-inject-annotations-dagger2:${Versions.assistInject}"
+
+    const val coil                      = "dev.chrisbanes.accompanist:accompanist-coil:0.2.2"
 }
 
 object AnnotationProcessors {

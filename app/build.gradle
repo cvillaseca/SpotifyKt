@@ -66,9 +66,9 @@ dependencies {
     implementation Libraries.hilt
     kapt AnnotationProcessors.hilt
 
-    debugImplementation Libraries.flipper
-    debugImplementation Libraries.flipperNetwork
-    debugImplementation Libraries.soLoader
+    implementation Libraries.flipper
+    implementation Libraries.flipperNetwork
+    implementation Libraries.soLoader
 
     debugImplementation Libraries.leakCanaryAndroid
     releaseImplementation Libraries.leakCanaryAndroidNoOp

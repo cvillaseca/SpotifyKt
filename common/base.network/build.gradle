@@ -13,7 +13,7 @@ dependencies {
     implementation Libraries.hilt
     kapt AnnotationProcessors.hilt
 
-    debugImplementation Libraries.flipperNetwork
-    debugImplementation Libraries.flipper
+    implementation Libraries.flipperNetwork
+    implementation Libraries.flipper
 
 }

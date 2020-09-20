@@ -29,8 +29,8 @@ class HomeCategoryCarouselItem @JvmOverloads constructor(
     }
 
     @ModelProp
-    fun setImage(url: String) =
-        image.loadImage(url)
+    fun setImage(url: String) = Unit
+//        image.loadImage(url)
 
     @CallbackProp
     fun setClickListener(listener: View.OnClickListener?) {

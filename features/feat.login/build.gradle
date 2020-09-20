@@ -50,6 +50,7 @@ dependencies {
     implementation Libraries.composeUI
     implementation Libraries.composeMaterial
     implementation Libraries.composeTooling
+    implementation Libraries.coil
 
     testImplementation TestLibraries.junit
     testImplementation TestLibraries.assertjCore
