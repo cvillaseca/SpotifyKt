@@ -1,8 +1,30 @@
 apply from: "$rootDir/common-android-library.gradle"
 
-android.defaultConfig.javaCompileOptions {
-    annotationProcessorOptions {
-        arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
+android {
+
+    defaultConfig.javaCompileOptions {
+        annotationProcessorOptions {
+            arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
+        }
+    }
+
+    kotlinOptions {
+        useIR = true
+    }
+
+    buildFeatures {
+        // Enables Jetpack Compose for this module
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerVersion Versions.kotlin
+        kotlinCompilerExtensionVersion Versions.compose
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+        useIR = true
     }
 }
 
@@ -15,26 +37,19 @@ dependencies {
     implementation project(Modules.spotify_api)
 
     implementation SupportLibraries.appcompat
-    implementation SupportLibraries.constraintLayout
-    implementation SupportLibraries.materialDesign
+//    implementation SupportLibraries.constraintLayout
+//    implementation SupportLibraries.materialDesign
 
     implementation Libraries.lifecycleExtensions
-
     implementation Libraries.rxjava
     implementation Libraries.rxkotlin
 
     implementation Libraries.hilt
     kapt AnnotationProcessors.hilt
 
-    implementation Libraries.epoxy
-    kapt AnnotationProcessors.epoxy
+    implementation Libraries.composeUI
+    implementation Libraries.composeMaterial
+    implementation Libraries.composeTooling
 
-    implementation Libraries.mvrx
-    implementation Libraries.assistedInject
-    kapt AnnotationProcessors.assistedInject
-
-    testImplementation TestLibraries.junit
-    testImplementation TestLibraries.assertjCore
-    testImplementation TestLibraries.mockitoKotlin
-    testImplementation TestLibraries.lifecycleTesting
+    implementation Libraries.coil
 }

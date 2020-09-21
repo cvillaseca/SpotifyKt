@@ -13,7 +13,7 @@
                  tools:replace="icon, label, allowBackup"
                  android:theme="@style/Theme.SpotifyKt.Light">
 <!--        <activity-->
-<!--            android:name="com.cvillaseca.spotifykt.login.presentation.LoginActivity"-->
+<!--            android:name="com.cvillaseca.spotifykt.feature.home.presentation.LoginActivity"-->
 <!--            android:label="@string/title_activity_login"-->
 <!--            android:theme="@style/Theme.SpotifyKt.NoActionBar">-->
 <!--            <intent-filter>-->

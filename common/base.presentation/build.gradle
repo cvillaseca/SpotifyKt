@@ -2,6 +2,8 @@ apply from: "$rootDir/common-android-library.gradle"
 
 dependencies {
     implementation Libraries.lifecycleExtensions
+    implementation Libraries.activityKtx
+    implementation SupportLibraries.appcompat
     kapt Libraries.lifecycleCompiler
 
     implementation SupportLibraries.materialDesign

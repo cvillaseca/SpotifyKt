@@ -12,16 +12,6 @@
                  android:supportsRtl="true"
                  tools:replace="icon, label, allowBackup"
                  android:theme="@style/Theme.SpotifyKt.Light">
-        <activity
-                android:label="@string/app_name"
-                android:name=".feature.home.presentation.MainActivity"
-                android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
     </application>
 </manifest>
