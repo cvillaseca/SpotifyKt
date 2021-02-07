@@ -1,14 +1,14 @@
 package com.cvillaseca.spotifykt.feature.home.presentation.view
 
-import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.ui.tooling.preview.Preview
 import com.cvillaseca.spotifykt.view.ui.SpotifyKtTheme
 import dev.chrisbanes.accompanist.coil.CoilImage
 
@@ -25,15 +25,20 @@ fun HomeCarouselItem(
         modifier = modifier,
         contentPadding = PaddingValues(0.dp)
     ) {
-        Stack {
+        Column {
             CoilImage(
                 data = image,
+                contentDescription = null,
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.size(140.dp).padding(0.dp)
+                modifier = Modifier
+                    .size(140.dp)
+                    .padding(0.dp)
             )
             Text(
                 text = name,
-                modifier = Modifier.align(Alignment.BottomStart).padding(8.dp)
+                modifier = Modifier
+                    .align(Alignment.Start)
+                    .padding(8.dp)
             )
         }
 

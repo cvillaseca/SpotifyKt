@@ -49,7 +49,7 @@ object Versions {
 
     const val ktx = "1.2.0"
 
-    const val kotlin                = "1.4.0"
+    const val kotlin                = "1.4.21-2"
     const val retrofit              = "2.7.1"
     const val okhttp                = "4.3.1"
     const val rxjava                = "2.2.7"
@@ -68,11 +68,11 @@ object Versions {
     const val mockitoKotlin         = "2.1.0"
     const val timber                = "4.7.1"
     const val mvrx                  = "2.0.0-alpha2"
-    const val compose               = "1.0.0-alpha03"
+    const val compose               = "1.0.0-alpha11"
     const val hilt                  = "2.28-alpha"
     const val assistInject          = "0.5.2"
     const val epoxy                 = "3.11.0"
-    const val detekt                = "1.12.0"
+    const val detekt                = "1.14.0"
 }
 
 object Libraries {
@@ -124,13 +124,23 @@ object Libraries {
 
     const val composeMaterial           = "androidx.compose.material:material:${Versions.compose}"
     const val composeUI                 = "androidx.compose.ui:ui:${Versions.compose}"
-    const val composeTooling            = "androidx.ui:ui-tooling:${Versions.compose}"
+    const val composeTooling            = "androidx.compose.ui:ui-tooling:${Versions.compose}"
+
+//    implementation "androidx.compose.runtime:runtime:$compose_version"
+//    implementation "androidx.compose.ui:ui:$compose_version"
+//    implementation "androidx.compose.foundation:foundation-layout:$compose_version"
+//    implementation "androidx.compose.material:material:$compose_version"
+//    implementation "androidx.compose.material:material-icons-extended:$compose_version"
+//    implementation "androidx.compose.foundation:foundation:$compose_version"
+//    implementation "androidx.compose.animation:animation:$compose_version"
+//    implementation "androidx.compose.ui:ui-tooling:$compose_version"
+//    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
 
     const val hilt                      = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val epoxy                     = "com.airbnb.android:epoxy:${Versions.epoxy}"
     const val assistedInject            = "com.squareup.inject:assisted-inject-annotations-dagger2:${Versions.assistInject}"
 
-    const val coil                      = "dev.chrisbanes.accompanist:accompanist-coil:0.2.2"
+    const val coil                      = "dev.chrisbanes.accompanist:accompanist-coil:0.5.0"
 }
 
 object AnnotationProcessors {

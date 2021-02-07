@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.Icon
-import androidx.compose.foundation.ScrollableColumn
-import androidx.compose.foundation.ScrollableRow
-import androidx.compose.foundation.Text
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Search
@@ -18,8 +19,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ContextAmbient
 import androidx.compose.ui.platform.setContent
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.ui.tooling.preview.Preview
 import com.cvillaseca.spotifykt.feature.home.presentation.view.HomeCarouselItem
 import com.cvillaseca.spotifykt.view.ui.SpotifyKtTheme
 
@@ -37,20 +38,23 @@ class HomeActivity : AppCompatActivity() {
 @Composable
 fun HomeScreen() {
     val context = ContextAmbient.current
+    val titles = listOf("Music", "Music2", "Music3", "Music4")
     Scaffold(
         topBar = {
             HomeToolbar()
         }
     ) {
-        ScrollableColumn {
-            (0..9).forEach {
-                ScrollableRow {
-                    (0..9).forEachIndexed { index, it ->
+        LazyColumn {
+            items(10) {
+                LazyRow {
+                    itemsIndexed(titles) { index, item ->
                         HomeCarouselItem(
                             modifier = if (index == 0) Modifier.padding(16.dp)
-                            else Modifier.padding(vertical = 16.dp).padding(end = 16.dp),
-                            id = it,
-                            name = "Music",
+                            else Modifier
+                                .padding(vertical = 16.dp)
+                                .padding(end = 16.dp),
+                            id = index,
+                            name = item,
                             image = "https://upload.wikimedia.org/wikipedia/en/4/4b/AmongUsWhiteKillBlue.png"
                         ) {
                             Toast.makeText(context, "touched!", Toast.LENGTH_LONG)
@@ -75,7 +79,7 @@ fun HomeToolbar() {
                 modifier = Modifier.align(Alignment.CenterVertically)
             ) {
                 Icon(
-                    asset = Icons.Outlined.Search,
+                    Icons.Outlined.Search,
                 )
             }
         }
