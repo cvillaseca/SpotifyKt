@@ -11,9 +11,7 @@ dependencies {
     implementation Libraries.hilt
     kapt AnnotationProcessors.hilt
 
-    implementation Libraries.mvrx
-    implementation Libraries.assistedInject
-    kapt AnnotationProcessors.assistedInject
+    implementation Libraries.mavericks
 
     testImplementation TestLibraries.lifecycleTesting
 }

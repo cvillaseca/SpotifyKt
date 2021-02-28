@@ -12,14 +12,6 @@ android {
         versionCode Releases.versionCode
         versionName Releases.versionName
         multiDexEnabled true
-
-        // To disable checking for the InstallIn annotation and make assisted modules work without,
-        // the installIn annotation, enable the compiler option:
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
-            }
-        }
     }
 
     buildTypes {
@@ -60,7 +52,7 @@ dependencies {
     implementation Libraries.okhttp
     implementation Libraries.deeplinkDispatch
     implementation Libraries.retrofit
-    implementation Libraries.mvrx
+    implementation Libraries.mavericks
 
     implementation Libraries.hilt
     kapt AnnotationProcessors.hilt

@@ -4,11 +4,11 @@ import com.cvillaseca.spotifykt.data.SpotifyApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ApplicationComponent
+import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 
 @Module
-@InstallIn(ApplicationComponent::class)
+@InstallIn(SingletonComponent::class)
 object SpotifyServiceModule {
     @Provides
     internal fun providesSpotifyService(retrofit: Retrofit) =

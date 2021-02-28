@@ -49,12 +49,9 @@ object Versions {
 
     const val ktx = "1.2.0"
 
-    const val kotlin                = "1.4.21-2"
+    const val kotlin                = "1.4.30"
     const val retrofit              = "2.7.1"
     const val okhttp                = "4.3.1"
-    const val rxjava                = "2.2.7"
-    const val rxkotlin              = "2.3.0"
-    const val rxpaper               = "1.4.0"
     const val paperdb               = "2.6"
     const val glide                 = "4.9.0"
     const val moshi                 = "1.8.0"
@@ -67,12 +64,13 @@ object Versions {
     const val assertjCore           = "3.12.1"
     const val mockitoKotlin         = "2.1.0"
     const val timber                = "4.7.1"
-    const val mvrx                  = "2.0.0-alpha2"
-    const val compose               = "1.0.0-alpha11"
-    const val hilt                  = "2.28-alpha"
+    const val mavericks             = "2.0.0"
+    const val compose               = "1.0.0-beta01"
+    const val hilt                  = "2.33-beta"
     const val assistInject          = "0.5.2"
     const val epoxy                 = "3.11.0"
     const val detekt                = "1.14.0"
+    const val coroutines            = "1.4.2"
 }
 
 object Libraries {
@@ -82,13 +80,12 @@ object Libraries {
     const val retrofit                  = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val okhttp                    = "com.squareup.okhttp3:okhttp:${Versions.okhttp}"
     const val converterGson             = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
-    const val rxjavaAdapter             = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
     const val loggingInterceptor        = "com.squareup.okhttp3:logging-interceptor:${Versions.okhttp}"
-    const val rxjava                    = "io.reactivex.rxjava2:rxjava:${Versions.rxjava}"
-    const val rxkotlin                  = "io.reactivex.rxjava2:rxkotlin:${Versions.rxkotlin}"
+
+    const val coroutines                = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+    const val coroutinesAndroid         = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
 
     const val paperdb                   = "io.paperdb:paperdb:${Versions.paperdb}"
-    const val rxpaper                   = "com.github.pakoito:RxPaper2:${Versions.rxpaper}"
     const val moshi                     = "com.squareup.moshi:moshi:${Versions.moshi}"
 
     const val ktx                       = "androidx.core:core-ktx:${Versions.ktx}"
@@ -118,34 +115,22 @@ object Libraries {
     const val flipperNetwork            = "com.facebook.flipper:flipper-network-plugin:0.31.2"
     const val soLoader                  = "com.facebook.soloader:soloader:0.8.2"
 
-    const val mvrx                      = "com.airbnb.android:mvrx:${Versions.mvrx}"
-    const val mvrxTesting               = "com.airbnb.android:mvrx-testing:${Versions.mvrx}"
-    const val mvrxLauncher              = "com.airbnb.android:mvrx-launcher:${Versions.mvrx}"
+    const val mavericks                 = "com.airbnb.android:mavericks:${Versions.mavericks}"
+    const val mavericksTesting          = "com.airbnb.android:mavericks-testing:${Versions.mavericks}"
+    const val mavericksLauncher         = "com.airbnb.android:mavericks-launcher:${Versions.mavericks}"
 
     const val composeMaterial           = "androidx.compose.material:material:${Versions.compose}"
     const val composeUI                 = "androidx.compose.ui:ui:${Versions.compose}"
     const val composeTooling            = "androidx.compose.ui:ui-tooling:${Versions.compose}"
 
-//    implementation "androidx.compose.runtime:runtime:$compose_version"
-//    implementation "androidx.compose.ui:ui:$compose_version"
-//    implementation "androidx.compose.foundation:foundation-layout:$compose_version"
-//    implementation "androidx.compose.material:material:$compose_version"
-//    implementation "androidx.compose.material:material-icons-extended:$compose_version"
-//    implementation "androidx.compose.foundation:foundation:$compose_version"
-//    implementation "androidx.compose.animation:animation:$compose_version"
-//    implementation "androidx.compose.ui:ui-tooling:$compose_version"
-//    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
-
     const val hilt                      = "com.google.dagger:hilt-android:${Versions.hilt}"
     const val epoxy                     = "com.airbnb.android:epoxy:${Versions.epoxy}"
-    const val assistedInject            = "com.squareup.inject:assisted-inject-annotations-dagger2:${Versions.assistInject}"
 
-    const val coil                      = "dev.chrisbanes.accompanist:accompanist-coil:0.5.0"
+    const val coil                      = "dev.chrisbanes.accompanist:accompanist-coil:0.6.1"
 }
 
 object AnnotationProcessors {
     const val hilt                      = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
-    const val assistedInject            = "com.squareup.inject:assisted-inject-processor-dagger2:${Versions.assistInject}"
     const val epoxy                     = "com.airbnb.android:epoxy-processor:${Versions.epoxy}"
 }
 

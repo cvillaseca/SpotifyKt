@@ -6,5 +6,4 @@ dependencies {
 
     implementation Libraries.retrofit
     implementation Libraries.converterGson
-    implementation Libraries.rxjavaAdapter
 }

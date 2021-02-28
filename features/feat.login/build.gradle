@@ -40,8 +40,6 @@ dependencies {
     implementation SupportLibraries.materialDesign
 
     implementation Libraries.lifecycleExtensions
-    implementation Libraries.rxjava
-    implementation Libraries.rxkotlin
 
     implementation Libraries.hilt
     kapt AnnotationProcessors.hilt

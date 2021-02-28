@@ -1,14 +1,23 @@
 apply from: "$rootDir/common-android-library.gradle"
 
+android {
+    buildFeatures { buildConfig = true }
+    defaultConfig {
+        buildConfigField "String", "SPOTIFY_CLIENT", spotifyClient
+        buildConfigField "String", "SPOTIFY_SECRET", spotifySecret
+    }
+}
+
 dependencies {
     implementation project(Modules.cache)
 
     implementation Libraries.retrofit
     implementation Libraries.okhttp
-    implementation Libraries.rxjavaAdapter
     implementation Libraries.loggingInterceptor
     implementation Libraries.converterGson
     implementation Libraries.timber
+
+    implementation Libraries.coroutines
 
     implementation Libraries.hilt
     kapt AnnotationProcessors.hilt

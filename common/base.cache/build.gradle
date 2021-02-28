@@ -2,6 +2,4 @@ apply from: "$rootDir/common-android-library.gradle"
 
 dependencies {
     implementation Libraries.paperdb
-    implementation Libraries.rxpaper
-    implementation Libraries.rxkotlin
 }

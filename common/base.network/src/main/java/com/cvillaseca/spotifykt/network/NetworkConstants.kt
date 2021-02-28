@@ -6,9 +6,6 @@ object NetworkConstants {
     private const val API_VERSION = "v1/"
     const val API_AUTH_URL = "https://accounts.spotify.com/api/"
 
-    const val API_CLIENT = ""
-    const val API_SECRET = ""
-
     const val AUTHORIZATION = "Authorization"
     const val BEARER = "Bearer"
     const val BASIC = "Basic"
