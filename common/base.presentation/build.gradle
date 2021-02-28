@@ -1,5 +1,16 @@
 apply from: "$rootDir/common-android-library.gradle"
 
+android {
+    buildFeatures {
+        // Enables Jetpack Compose for this module
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion Versions.compose
+    }
+}
+
 dependencies {
     implementation Libraries.lifecycleExtensions
     implementation Libraries.activityKtx
@@ -12,6 +23,7 @@ dependencies {
     kapt AnnotationProcessors.hilt
 
     implementation Libraries.mavericks
+    implementation Libraries.composeUI
 
     testImplementation TestLibraries.lifecycleTesting
 }

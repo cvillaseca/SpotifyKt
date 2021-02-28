@@ -2,6 +2,7 @@ package com.cvillaseca.spotifykt.feature.home.presentation.view
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,26 +21,32 @@ fun HomeCarouselItem(
     image: String,
     onClick: (Int) -> Unit
 ) {
+
     Button(
         onClick = { onClick(id) },
         modifier = modifier,
         contentPadding = PaddingValues(0.dp)
     ) {
-        Column {
-            CoilImage(
-                data = image,
-                contentDescription = null,
-                contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .size(140.dp)
-                    .padding(0.dp)
-            )
-            Text(
-                text = name,
-                modifier = Modifier
-                    .align(Alignment.Start)
-                    .padding(8.dp)
-            )
+        Card {
+            Column(
+                modifier = Modifier.width(140.dp)
+            ) {
+                CoilImage(
+                    data = image,
+                    contentDescription = null,
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier
+                        .size(140.dp)
+                        .padding(0.dp)
+                )
+                Text(
+                    text = name,
+                    modifier = Modifier
+                        .align(Alignment.Start)
+                        .padding(8.dp),
+                    maxLines = 2
+                )
+            }
         }
 
 //
@@ -66,7 +73,7 @@ fun HomeCarouselPreview() {
     SpotifyKtTheme {
         HomeCarouselItem(
             id = 1,
-            name = "Music",
+            name = "Music with long title",
             image = "https://upload.wikimedia.org/wikipedia/en/4/4b/AmongUsWhiteKillBlue.png"
         ) {
         }

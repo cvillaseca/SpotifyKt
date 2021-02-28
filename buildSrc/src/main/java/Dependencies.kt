@@ -67,7 +67,6 @@ object Versions {
     const val mavericks             = "2.0.0"
     const val compose               = "1.0.0-beta01"
     const val hilt                  = "2.33-beta"
-    const val assistInject          = "0.5.2"
     const val epoxy                 = "3.11.0"
     const val detekt                = "1.14.0"
     const val coroutines            = "1.4.2"

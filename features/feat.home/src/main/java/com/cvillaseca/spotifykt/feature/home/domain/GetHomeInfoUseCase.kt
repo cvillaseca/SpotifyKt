@@ -7,6 +7,7 @@ import com.cvillaseca.spotifykt.data.response.CategoryResponse
 import com.cvillaseca.spotifykt.data.response.FeaturedPlaylistsResponse
 import com.cvillaseca.spotifykt.data.response.NewReleasesResponse
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flow
 import java.text.SimpleDateFormat
@@ -18,9 +19,9 @@ class GetHomeInfoUseCase @Inject constructor(
 ) : () -> Flow<HomeDomainModel> {
 
     override fun invoke(): Flow<HomeDomainModel> = combine(
-        flow<CategoriesResponse> { api.categories("US", "en_US", null, null) },
-        flow<NewReleasesResponse> { api.newReleases("US", null, null) },
-        flow<FeaturedPlaylistsResponse> { getPlaylists() }
+        flow<CategoriesResponse> { emit(api.categories("US", "en_US", null, null)) },
+        flow<NewReleasesResponse> { emit(api.newReleases("US", null, null)) },
+        flow<FeaturedPlaylistsResponse> { emit(getPlaylists()) }
     ) { t1, t2, t3 ->
         HomeDomainModel(t1.categories.items, t2.albums.items, t3)
     }

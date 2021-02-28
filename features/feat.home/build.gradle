@@ -2,10 +2,6 @@ apply from: "$rootDir/common-android-library.gradle"
 
 android {
 
-    kotlinOptions {
-        useIR = true
-    }
-
     buildFeatures {
         // Enables Jetpack Compose for this module
         compose true
@@ -17,7 +13,6 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
-        useIR = true
     }
 }
 

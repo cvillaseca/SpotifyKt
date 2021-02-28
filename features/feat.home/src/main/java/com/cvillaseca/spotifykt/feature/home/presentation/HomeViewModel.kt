@@ -8,6 +8,7 @@ import com.cvillaseca.spotifykt.presentation.di.hiltMavericksViewModelFactory
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
+import kotlinx.coroutines.launch
 
 class HomeViewModel @AssistedInject constructor(
     @Assisted state: HomeState,
@@ -15,13 +16,13 @@ class HomeViewModel @AssistedInject constructor(
 ) : MvRxViewModel<HomeState>(state) {
 
     init {
+        loadInfo()
+    }
+
+    fun loadInfo() {
         useCase.invoke().execute {
             copy(homeInfo = it)
         }
-    }
-
-    fun onQueryTextChange(newText: String?): Boolean {
-        return true
     }
 
     @AssistedFactory
@@ -29,5 +30,6 @@ class HomeViewModel @AssistedInject constructor(
         override fun create(state: HomeState): HomeViewModel
     }
 
-    companion object : MavericksViewModelFactory<HomeViewModel, HomeState> by hiltMavericksViewModelFactory()
+    companion object :
+        MavericksViewModelFactory<HomeViewModel, HomeState> by hiltMavericksViewModelFactory()
 }

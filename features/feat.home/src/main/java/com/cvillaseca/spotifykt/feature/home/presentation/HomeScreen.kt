@@ -1,10 +1,17 @@
 package com.cvillaseca.spotifykt.feature.home.presentation
 
+import android.content.Context
+import android.widget.ScrollView
 import android.widget.Toast
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
@@ -18,34 +25,95 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.airbnb.mvrx.Fail
+import com.airbnb.mvrx.Incomplete
+import com.airbnb.mvrx.Loading
+import com.airbnb.mvrx.Success
+import com.cvillaseca.spotifykt.feature.home.domain.HomeDomainModel
 import com.cvillaseca.spotifykt.feature.home.presentation.view.HomeCarouselItem
+import com.cvillaseca.spotifykt.presentation.collectState
 import com.cvillaseca.spotifykt.view.ui.SpotifyKtTheme
+import java.lang.RuntimeException
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(viewModel: HomeViewModel) {
     val context = LocalContext.current
-    val titles = listOf("Music", "Music2", "Music3", "Music4")
+    val state = viewModel.collectState()
     Scaffold(
         topBar = {
-            HomeToolbar()
+            HomeToolbar(viewModel)
         }
     ) {
-        LazyColumn {
-            items(10) {
-                LazyRow {
-                    itemsIndexed(titles) { index, item ->
-                        HomeCarouselItem(
-                            modifier = if (index == 0) Modifier.padding(16.dp)
-                            else Modifier
-                                .padding(vertical = 16.dp)
-                                .padding(end = 16.dp),
-                            id = index,
-                            name = item,
-                            image = "https://upload.wikimedia.org/wikipedia/en/4/4b/AmongUsWhiteKillBlue.png"
-                        ) {
-                            Toast.makeText(context, "touched!", Toast.LENGTH_LONG)
-                                .show()
-                        }
+        when (state.homeInfo) {
+            is Incomplete -> {
+                Text(text = "loading")
+                CircularProgressIndicator()
+            }
+            is Success -> {
+                renderSuccess(state.homeInfo()!!, context)
+            }
+            is Fail -> {
+                Text(text = state.homeInfo.error.message ?: "Error without description")
+            }
+            else -> throw RuntimeException("Not expected state")
+        }
+
+    }
+}
+
+@Composable
+private fun renderSuccess(homeInfo: HomeDomainModel, context: Context) {
+    LazyColumn {
+        items(1) {
+            Spacer(modifier = Modifier.padding(top = 16.dp))
+            SectionTitle(text = homeInfo.featuredPlaylists.message)
+            LazyRow {
+                itemsIndexed(homeInfo.featuredPlaylists.playlists.items) { index, item ->
+                    HomeCarouselItem(
+                        modifier = if (index == 0) Modifier.padding(16.dp)
+                        else Modifier
+                            .padding(vertical = 16.dp)
+                            .padding(end = 16.dp),
+                        id = index,
+                        name = item.name,
+                        image = item.images.first().url
+                    ) {
+                        Toast.makeText(context, "touched!", Toast.LENGTH_LONG)
+                            .show()
+                    }
+                }
+            }
+            SectionTitle(text = "Categories")
+            LazyRow {
+                itemsIndexed(homeInfo.categories) { index, item ->
+                    HomeCarouselItem(
+                        modifier = if (index == 0) Modifier.padding(16.dp)
+                        else Modifier
+                            .padding(vertical = 16.dp)
+                            .padding(end = 16.dp),
+                        id = index,
+                        name = item.name,
+                        image = item.icons.first().url
+                    ) {
+                        Toast.makeText(context, "touched!", Toast.LENGTH_LONG)
+                            .show()
+                    }
+                }
+            }
+            SectionTitle(text = "New Releases")
+            LazyRow {
+                itemsIndexed(homeInfo.newReleases) { index, item ->
+                    HomeCarouselItem(
+                        modifier = if (index == 0) Modifier.padding(16.dp)
+                        else Modifier
+                            .padding(vertical = 16.dp)
+                            .padding(end = 16.dp),
+                        id = index,
+                        name = item.name,
+                        image = item.images.first().url
+                    ) {
+                        Toast.makeText(context, "touched!", Toast.LENGTH_LONG)
+                            .show()
                     }
                 }
             }
@@ -54,14 +122,14 @@ fun HomeScreen() {
 }
 
 @Composable
-fun HomeToolbar() {
+fun HomeToolbar(viewModel: HomeViewModel) {
     TopAppBar(
         title = {
             Text(text = "SpotifyKt", maxLines = 1)
         },
         actions = {
             IconButton(
-                onClick = { /* todo */ },
+                onClick = { viewModel.loadInfo() },
                 modifier = Modifier.align(Alignment.CenterVertically)
             ) {
                 Icon(
@@ -73,10 +141,15 @@ fun HomeToolbar() {
     )
 }
 
-@Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
-    SpotifyKtTheme {
-        HomeScreen()
-    }
+private fun SectionTitle(text: String) {
+    Text(text = text, modifier = Modifier.padding(horizontal = 16.dp))
 }
+
+//@Preview(showBackground = true)
+//@Composable
+//fun DefaultPreview() {
+//    SpotifyKtTheme {
+//        HomeScreen(viewModel.collectState())
+//    }
+//}
