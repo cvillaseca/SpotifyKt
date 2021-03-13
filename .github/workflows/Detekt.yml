@@ -19,11 +19,8 @@ jobs:
           java-version: 11
 
       - name: Create gradle.properties
-        run: echo spotifyClient="spotifyClient" >> ./gradle.properties
+        run: echo spotifyClient="spotifyClient" > ./gradle.properties
               echo spotifySecret="spotifySecret" >> ./gradle.properties
 
       - name: Run detekt
-        env:
-          spotifyClient: ${{ secrets.SPOTIFYCLIENT }}
-          spotifySecret: ${{ secrets.SPOTIFYSECRET }}
         run: ./gradlew detekt
