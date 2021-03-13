@@ -12,16 +12,6 @@
                  android:supportsRtl="true"
                  tools:replace="icon, label, allowBackup"
                  android:theme="@style/Theme.SpotifyKt.Light">
-<!--        <activity-->
-<!--            android:name="com.cvillaseca.spotifykt.feature.home.presentation.LoginActivity"-->
-<!--            android:label="@string/title_activity_login"-->
-<!--            android:theme="@style/Theme.SpotifyKt.NoActionBar">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
 
     </application>
 </manifest>

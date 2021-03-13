@@ -17,15 +17,7 @@ android {
 }
 
 dependencies {
-    implementation SupportLibraries.constraintLayout
-
     implementation Libraries.ktx
-    implementation Libraries.shimmerLayout
-    implementation Libraries.epoxy
-    api Libraries.glide
-
-    kapt AnnotationProcessors.epoxy
-    kapt Libraries.glideCompiler
 
     implementation Libraries.composeUI
     implementation Libraries.composeMaterial

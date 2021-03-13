@@ -16,7 +16,7 @@ object CacheLibrary {
 class Cache<T> {
     private val book: Book = Paper.book()
 
-    fun load(key: String): T = book.read(key)
+    fun load(key: String): T? = if (book.contains(key)) book.read(key) else null
 
     fun save(key: String, anyObject: T): T =
         book.write(key, anyObject).run { anyObject }

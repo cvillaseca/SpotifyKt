@@ -14,7 +14,6 @@ object Modules {
 
     const val spotify_api = ":shared:lib.spotify_api"
 
-    const val login = ":features:feat.login"
     const val home = ":features:feat.home"
 }
 
@@ -24,7 +23,7 @@ object Releases {
 }
 
 object Versions {
-    const val gradle        = "3.3.1"
+    const val gradle        = "7.0.0-alpha09"
 
     const val minSdk        = 26
     const val compileSdk    = 28
@@ -53,7 +52,6 @@ object Versions {
     const val retrofit              = "2.7.1"
     const val okhttp                = "4.3.1"
     const val paperdb               = "2.6"
-    const val glide                 = "4.9.0"
     const val moshi                 = "1.8.0"
     const val lifecycle             = "2.0.0"
     const val leakCanary            = "1.6.3"
@@ -64,7 +62,7 @@ object Versions {
     const val assertjCore           = "3.12.1"
     const val mockitoKotlin         = "2.1.0"
     const val timber                = "4.7.1"
-    const val mavericks             = "2.0.0"
+    const val mavericks             = "2.1.0-alpha01"
     const val compose               = "1.0.0-beta01"
     const val hilt                  = "2.33-beta"
     const val epoxy                 = "3.11.0"
@@ -94,11 +92,6 @@ object Libraries {
 
     const val timber                    = "com.jakewharton.timber:timber:${Versions.timber}"
 
-    const val glide                     = "com.github.bumptech.glide:glide:${Versions.glide}"
-    const val glideCompiler             = "com.github.bumptech.glide:compiler:${Versions.glide}"
-
-    const val shimmerLayout       =     "io.supercharge:shimmerlayout:2.1.0"
-
     const val lifecycleExtensions       = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     const val lifecycleCompiler         = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
 
@@ -114,23 +107,21 @@ object Libraries {
     const val flipperNetwork            = "com.facebook.flipper:flipper-network-plugin:0.31.2"
     const val soLoader                  = "com.facebook.soloader:soloader:0.8.2"
 
-    const val mavericks                 = "com.airbnb.android:mavericks:${Versions.mavericks}"
+    const val mavericks                 = "com.airbnb.android:mavericks-compose:${Versions.mavericks}"
     const val mavericksTesting          = "com.airbnb.android:mavericks-testing:${Versions.mavericks}"
-    const val mavericksLauncher         = "com.airbnb.android:mavericks-launcher:${Versions.mavericks}"
+//    const val mavericksLauncher         = "com.airbnb.android:mavericks-launcher:${Versions.mavericks}"
 
     const val composeMaterial           = "androidx.compose.material:material:${Versions.compose}"
     const val composeUI                 = "androidx.compose.ui:ui:${Versions.compose}"
     const val composeTooling            = "androidx.compose.ui:ui-tooling:${Versions.compose}"
 
     const val hilt                      = "com.google.dagger:hilt-android:${Versions.hilt}"
-    const val epoxy                     = "com.airbnb.android:epoxy:${Versions.epoxy}"
 
     const val coil                      = "dev.chrisbanes.accompanist:accompanist-coil:0.6.1"
 }
 
 object AnnotationProcessors {
     const val hilt                      = "com.google.dagger:hilt-android-compiler:${Versions.hilt}"
-    const val epoxy                     = "com.airbnb.android:epoxy-processor:${Versions.epoxy}"
 }
 
 object SupportLibraries {
@@ -140,7 +131,6 @@ object SupportLibraries {
     const val customtabs                = "com.android.support:customtabs:${Versions.customtabs}"
     const val constraintLayout          = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val materialDesign            = "com.google.android.material:material:${Versions.materialDesign}"
-
 }
 
 object TestLibraries {

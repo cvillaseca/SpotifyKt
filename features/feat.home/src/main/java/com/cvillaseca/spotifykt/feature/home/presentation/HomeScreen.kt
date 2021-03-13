@@ -1,15 +1,11 @@
 package com.cvillaseca.spotifykt.feature.home.presentation
 
 import android.content.Context
-import android.widget.ScrollView
 import android.widget.Toast
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
@@ -20,25 +16,22 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.airbnb.mvrx.Fail
 import com.airbnb.mvrx.Incomplete
-import com.airbnb.mvrx.Loading
 import com.airbnb.mvrx.Success
+import com.airbnb.mvrx.compose.collectAsState
 import com.cvillaseca.spotifykt.feature.home.domain.HomeDomainModel
 import com.cvillaseca.spotifykt.feature.home.presentation.view.HomeCarouselItem
-import com.cvillaseca.spotifykt.presentation.collectState
-import com.cvillaseca.spotifykt.view.ui.SpotifyKtTheme
-import java.lang.RuntimeException
 
 @Composable
 fun HomeScreen(viewModel: HomeViewModel) {
     val context = LocalContext.current
-    val state = viewModel.collectState()
+    val state by viewModel.collectAsState()
     Scaffold(
         topBar = {
             HomeToolbar(viewModel)
@@ -53,7 +46,7 @@ fun HomeScreen(viewModel: HomeViewModel) {
                 renderSuccess(state.homeInfo()!!, context)
             }
             is Fail -> {
-                Text(text = state.homeInfo.error.message ?: "Error without description")
+                Text(text = (state.homeInfo as Fail<HomeDomainModel>).error.message ?: "Error without description")
             }
             else -> throw RuntimeException("Not expected state")
         }

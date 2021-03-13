@@ -5,5 +5,4 @@ dependencies {
 
     implementation Libraries.activityKtx
     implementation Libraries.mavericks
-    implementation Libraries.mavericksLauncher
 }
