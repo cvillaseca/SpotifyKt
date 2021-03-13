@@ -1,32 +1,34 @@
 package com.cvillaseca.spotifykt.feature.home.presentation
 
-import com.airbnb.mvrx.BaseMvRxViewModel
+import com.airbnb.mvrx.MavericksViewModel
+import com.airbnb.mvrx.MavericksViewModelFactory
 import com.cvillaseca.spotifykt.feature.home.domain.GetHomeInfoUseCase
 import com.cvillaseca.spotifykt.presentation.di.AssistedViewModelFactory
-import com.cvillaseca.spotifykt.presentation.di.DaggerMvRxViewModelFactory
-import com.squareup.inject.assisted.Assisted
-import com.squareup.inject.assisted.AssistedInject
+import com.cvillaseca.spotifykt.presentation.di.hiltMavericksViewModelFactory
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 
 class HomeViewModel @AssistedInject constructor(
     @Assisted state: HomeState,
-    private val homeReducer: HomeReducer,
     private val useCase: GetHomeInfoUseCase
-) : BaseMvRxViewModel<HomeState>(state) {
+) : MavericksViewModel<HomeState>(state) {
 
     init {
-        useCase.invoke()
-            .map { homeReducer.toState(it) }
-            .execute { copy(homeInfo = it) }
+        loadInfo()
     }
 
-    fun onQueryTextChange(newText: String?): Boolean {
-        return true
+    fun loadInfo() {
+        useCase.invoke().execute {
+            copy(homeInfo = it)
+        }
     }
 
-    @AssistedInject.Factory
+    @AssistedFactory
     interface Factory : AssistedViewModelFactory<HomeViewModel, HomeState> {
         override fun create(state: HomeState): HomeViewModel
     }
 
-    companion object : DaggerMvRxViewModelFactory<HomeViewModel, HomeState>(HomeViewModel::class.java)
+    companion object :
+        MavericksViewModelFactory<HomeViewModel, HomeState> by hiltMavericksViewModelFactory()
 }

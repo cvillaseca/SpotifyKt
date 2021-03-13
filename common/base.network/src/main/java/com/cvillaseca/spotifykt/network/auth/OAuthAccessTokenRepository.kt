@@ -18,7 +18,7 @@ class OAuthAccessTokenRepository @Inject constructor(
         localDataSource.storeToken(token)
     }
 
-    fun getToken(authHeader: String) =
+    suspend fun getToken(authHeader: String) =
         localToken?.refreshToken?.let {
             remoteDatasource.refreshToken(authHeader, it)
         } ?: remoteDatasource.getToken(authHeader)

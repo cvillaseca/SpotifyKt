@@ -1,80 +1,34 @@
 package com.cvillaseca.spotifykt.feature.home.presentation
 
-import android.app.SearchManager
-import android.content.Context
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuInflater
+import android.view.LayoutInflater
 import android.view.View
-import androidx.appcompat.widget.SearchView
-import androidx.core.view.MenuItemCompat
-import com.airbnb.mvrx.BaseMvRxFragment
+import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.MATCH_PARENT
+import androidx.compose.ui.platform.ComposeView
+import androidx.fragment.app.Fragment
+import com.airbnb.mvrx.MavericksView
 import com.airbnb.mvrx.fragmentViewModel
-import com.airbnb.mvrx.withState
-import com.cvillaseca.spotifykt.feature.home.R
-import com.cvillaseca.spotifykt.navigation.features.LoginNavigation
+import com.cvillaseca.spotifykt.view.ui.SpotifyKtTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.activity_home.*
 
 @AndroidEntryPoint
-class HomeFragment : BaseMvRxFragment(R.layout.activity_home), HomeController.AdapterCallbacks,
-    SearchView.OnQueryTextListener {
+class HomeFragment : Fragment(), MavericksView {
+    val viewModel: HomeViewModel by fragmentViewModel()
 
-    private val viewModel: HomeViewModel by fragmentViewModel()
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View =
+        ComposeView(inflater.context).apply {
+            layoutParams = ViewGroup.LayoutParams(MATCH_PARENT, MATCH_PARENT)
+            setContent {
+                SpotifyKtTheme {
+                    HomeScreen(viewModel)
+                }
+            }
+        }
 
-    private val controller = HomeController(this)
-
-    private var searchView: SearchView? = null
-    private val queryTextListener: SearchView.OnQueryTextListener? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        controller.onRestoreInstanceState(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        controller.onSaveInstanceState(outState)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        recyclerView.setController(controller)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.home_menu, menu)
-        val searchManager = requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
-        searchView = MenuItemCompat.getActionView(menu.findItem(R.id.search)) as SearchView
-
-        searchView?.setSearchableInfo(searchManager.getSearchableInfo(requireActivity().getComponentName()))
-        //        searchView.setSubmitButtonEnabled(true);
-        searchView?.setOnQueryTextListener(this)
-
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    override fun invalidate() = withState(viewModel) {
-        controller.setData(it.homeInfo)
-    }
-
-    override fun onPlaylistClicked(position: Int) {
-        startActivity(
-            LoginNavigation.newIntent()
-        )
-    }
-
-    override fun onNewReleaseClicked(position: Int) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onCategoryClicked(position: Int) {
-        TODO("Not yet implemented")
-    }
-
-    override fun onQueryTextSubmit(query: String?): Boolean = false
-
-    override fun onQueryTextChange(newText: String?): Boolean =
-        viewModel.onQueryTextChange(newText)
+    override fun invalidate() = Unit
 }

@@ -1,0 +1,75 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion Versions.compileSdk
+
+    defaultConfig {
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
+        versionCode 1
+        versionName "1.0.0"
+        multiDexEnabled true
+
+        // To disable checking for the InstallIn annotation and make assisted modules work without,
+        // the installIn annotation, enable the compiler option:
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
+            }
+        }
+
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    implementation project(Modules.cache)
+    implementation project(Modules.network)
+    implementation project(Modules.navigation)
+    implementation project(Modules.presentation)
+    implementation project(Modules.view)
+    implementation project(Modules.spotify_api)
+    implementation project(Modules.debug_tools)
+
+    implementation project(Modules.home)
+
+    implementation SupportLibraries.appcompat
+    implementation Libraries.timber
+    implementation Libraries.okhttp
+    implementation Libraries.deeplinkDispatch
+    implementation Libraries.retrofit
+    implementation Libraries.mavericks
+
+    implementation Libraries.hilt
+    kapt AnnotationProcessors.hilt
+
+    implementation Libraries.flipper
+    implementation Libraries.flipperNetwork
+    implementation Libraries.soLoader
+
+    debugImplementation Libraries.leakCanaryAndroid
+    releaseImplementation Libraries.leakCanaryAndroidNoOp
+    debugImplementation Libraries.leakCanaryAndroidSupportFragment
+
+    testImplementation TestLibraries.junit
+}
