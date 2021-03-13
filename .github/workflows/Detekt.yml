@@ -22,7 +22,6 @@ jobs:
         run: echo "" >> ./gradle.properties;
               echo spotifyClient="spotifyClient" >> ./gradle.properties;
               echo spotifySecret="spotifySecret" >> ./gradle.properties;
-              cat ./gradle.properties
 
       - name: Run detekt
         run: ./gradlew detekt
