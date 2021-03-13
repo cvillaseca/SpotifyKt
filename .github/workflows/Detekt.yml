@@ -20,4 +20,7 @@ jobs:
 
 
       - name: Run detekt
+        env:
+          spotifyClient: ${{ secrets.SPOTIFYCLIENT }}
+          spotifySecret: ${{ secrets.SPOTIFYSECRET }}
         run: ./gradlew detekt
