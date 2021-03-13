@@ -1,19 +1,8 @@
 package com.cvillaseca.spotifykt.network.di
 
-import android.content.Context
-import com.cvillaseca.spotifykt.network.auth.interceptor.AuthInterceptor
-import dagger.Module
-import dagger.Provides
-import okhttp3.Cache
-import okhttp3.OkHttpClient
-import java.io.File
-import java.util.concurrent.TimeUnit
-import javax.inject.Named
-import javax.inject.Singleton
-
-//@Module
-//@InstallIn(ApplicationComponent::class)
-//class OkHttpModule {
+// @Module
+// @InstallIn(ApplicationComponent::class)
+// class OkHttpModule {
 //
 //    @Provides
 //    @Singleton
@@ -65,4 +54,4 @@ import javax.inject.Singleton
 //        private const val DISK_CACHE_SIZE = 50 * 1024 * 1024 // 50MB
 //        private const val TIME_OUT_SECONDS = 25L
 //    }
-//}
+// }

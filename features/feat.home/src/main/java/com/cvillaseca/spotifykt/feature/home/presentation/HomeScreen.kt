@@ -48,12 +48,11 @@ fun HomeScreen(viewModel: HomeViewModel) {
             is Fail -> {
                 Text(text = (state.homeInfo as Fail<HomeDomainModel>).error.message ?: "Error without description")
             }
-            else -> throw RuntimeException("Not expected state")
         }
-
     }
 }
 
+@Suppress("MagicNumber")
 @Composable
 private fun renderSuccess(homeInfo: HomeDomainModel, context: Context) {
     LazyColumn {
@@ -134,15 +133,16 @@ fun HomeToolbar(viewModel: HomeViewModel) {
     )
 }
 
+@Suppress("MagicNumber")
 @Composable
 private fun SectionTitle(text: String) {
     Text(text = text, modifier = Modifier.padding(horizontal = 16.dp))
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun DefaultPreview() {
+// @Preview(showBackground = true)
+// @Composable
+// fun DefaultPreview() {
 //    SpotifyKtTheme {
 //        HomeScreen(viewModel.collectState())
 //    }
-//}
+// }

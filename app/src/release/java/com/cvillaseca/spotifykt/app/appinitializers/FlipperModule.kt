@@ -1,7 +1,7 @@
-//package com.cvillaseca.spotifykt.app.appinitializers
+// package com.cvillaseca.spotifykt.app.appinitializers
 //
-//import dagger.Module
+// import dagger.Module
 //
-//@Module
-//@InstallIn(ApplicationComponent::class)
-//object FlipperModule
+// @Module
+// @InstallIn(ApplicationComponent::class)
+// object FlipperModule

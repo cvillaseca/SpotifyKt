@@ -5,7 +5,6 @@ import android.content.IntentFilter
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.airbnb.deeplinkdispatch.DeepLinkHandler
 import com.cvillaseca.spotifykt.debugtools.DebugTools
-import com.cvillaseca.spotifykt.tester.appinitializers.AppInitializer
 import com.facebook.flipper.android.AndroidFlipperClient
 import com.facebook.flipper.android.utils.FlipperUtils
 import com.facebook.flipper.plugins.inspector.DescriptorMapping

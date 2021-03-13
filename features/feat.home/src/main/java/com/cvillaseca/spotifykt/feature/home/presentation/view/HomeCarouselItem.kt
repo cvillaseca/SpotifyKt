@@ -1,6 +1,10 @@
 package com.cvillaseca.spotifykt.feature.home.presentation.view
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
 import androidx.compose.material.Card
 import androidx.compose.material.Text
@@ -48,22 +52,6 @@ fun HomeCarouselItem(
                 )
             }
         }
-
-//
-//        Column {
-//            Surface(
-//                modifier = Modifier.preferredSize(100.dp),
-//                shape = CircleShape,
-//                color = MaterialTheme.colors.onSurface.copy(alpha = 0.2f)
-//            ) {
-//                CoilImage(
-//                    data = image,
-//                    contentScale = ContentScale.Crop,
-//                    modifier = Modifier.fillMaxSize()
-//                )
-//            }
-//            Text(name)
-//        }
     }
 }
 

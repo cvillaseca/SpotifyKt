@@ -17,7 +17,8 @@ import com.airbnb.mvrx.MavericksViewModel
  *   fun myViewModelFactory(factory: MyViewModel.Factory): AssistedViewModelFactory<*, *>
  * }
  *
- * If you already have a ViewModelsModule then all you have to do is add the multibinding entry for your new [MavericksViewModel].
+ * If you already have a ViewModelsModule then all you have to do is add the multibinding entry
+ * for your new [MavericksViewModel].
  */
 interface AssistedViewModelFactory<VM : MavericksViewModel<S>, S : MavericksState> {
     fun create(state: S): VM

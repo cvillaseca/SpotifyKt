@@ -1,10 +1,10 @@
-//package com.cvillaseca.spotifykt.navigation.features
+// package com.cvillaseca.spotifykt.navigation.features
 //
-//import android.content.Intent
-//import android.os.Bundle
-//import com.cvillaseca.spotifykt.navigation.ContainerActivity
+// import android.content.Intent
+// import android.os.Bundle
+// import com.cvillaseca.spotifykt.navigation.ContainerActivity
 //
-//object SearchNavigation {
+// object SearchNavigation {
 //
 //    const val SEARCH_ACTIVITY_NAME = "com.cvillaseca.spotifykt.search.presentation.SearchFragment"
 //
@@ -13,4 +13,4 @@
 //        SEARCH_ACTIVITY_NAME,
 //        Bundle()
 //    )
-//}
+// }

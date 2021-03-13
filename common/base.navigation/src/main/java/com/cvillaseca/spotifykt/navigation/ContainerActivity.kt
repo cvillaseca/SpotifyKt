@@ -1,14 +1,14 @@
-//package com.cvillaseca.spotifykt.navigation
+// package com.cvillaseca.spotifykt.navigation
 //
-//import android.content.Intent
-//import android.content.pm.ActivityInfo
-//import android.os.Bundle
-//import androidx.appcompat.app.AppCompatActivity
-//import com.cvillaseca.spotifykt.debugtools.DebugTools
-//import dagger.hilt.android.AndroidEntryPoint
+// import android.content.Intent
+// import android.content.pm.ActivityInfo
+// import android.os.Bundle
+// import androidx.appcompat.app.AppCompatActivity
+// import com.cvillaseca.spotifykt.debugtools.DebugTools
+// import dagger.hilt.android.AndroidEntryPoint
 //
-//@AndroidEntryPoint
-//class ContainerActivity : AppCompatActivity() {
+// @AndroidEntryPoint
+// class ContainerActivity : AppCompatActivity() {
 //
 //    override fun onCreate(savedInstanceState: Bundle?) {
 //        overridePendingTransition(0, 0)
@@ -60,4 +60,4 @@
 //                .putExtra(FRAGMENT_NAME, fragmentName)
 //                .putExtra(FRAGMENT_BUNDLE, args)
 //    }
-//}
+// }
