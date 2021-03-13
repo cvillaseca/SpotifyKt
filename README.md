@@ -1,8 +1,13 @@
 # SpotifyKt
-A Spotify client written in Kotlin with Clean MVP Architecture, Dagger2, RxAndroid, Retrofit.
+A Spotify client written in Kotlin with a Clean Architecture.
+It uses Compose, Mavericks, Hilt, Coroutines and Retrofit.
 
 ## Getting Started
-It's necessary update your Spotify's client and secre in this file [Constants.kt](app/src/main/java/com/cvillaseca/spotifykt/network/NetworkConstants.kt)
+It's necessary add your Spotify's client and secret in your `gradle.properties`:
+```
+spotifyClient=YOUR_CLIENT
+spotifySecret=YOUR_SECRET
+```
 
 
 ### Gradle tasks
