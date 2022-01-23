@@ -21,6 +21,17 @@ jobs:
           echo spotifyClient="spotifyClient" >> ./gradle.properties;
           echo spotifySecret="spotifySecret" >> ./gradle.properties;
 
+      - name: Unit Test
+        run: ./gradlew testDebugUnitTest
+        continue-on-error: true # IMPORTANT: allow pipeline to continue to Android Test Report step
+
+      - name: Upload Test Reports Folder
+        uses: actions/upload-artifact@v2
+        if: ${{ always() }} # IMPORTANT: Upload reports regardless of status
+        with:
+          name: reports
+          path: app/build/test-results # path to where the xml test results are stored
+
   report:
     runs-on: ubuntu-latest
     needs: test # The report job will run after test job
