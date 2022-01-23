@@ -7,8 +7,6 @@ data class UserResponse(
     val displayName: String?,
     @SerializedName("external_urls")
     val externalUrls: ExternalUrls,
-    @SerializedName("followers")
-    val followers: Followers,
     @SerializedName("href")
     val href: String,
     @SerializedName("id")

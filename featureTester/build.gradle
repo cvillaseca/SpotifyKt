@@ -56,7 +56,6 @@ dependencies {
     implementation SupportLibraries.appcompat
     implementation Libraries.timber
     implementation Libraries.okhttp
-    implementation Libraries.deeplinkDispatch
     implementation Libraries.retrofit
     implementation Libraries.mavericks
 
@@ -66,10 +65,6 @@ dependencies {
     implementation Libraries.flipper
     implementation Libraries.flipperNetwork
     implementation Libraries.soLoader
-
-    debugImplementation Libraries.leakCanaryAndroid
-    releaseImplementation Libraries.leakCanaryAndroidNoOp
-    debugImplementation Libraries.leakCanaryAndroidSupportFragment
 
     testImplementation TestLibraries.junit
 }
