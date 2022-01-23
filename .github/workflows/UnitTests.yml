@@ -21,8 +21,8 @@ jobs:
           SPOTIFY_CLIENT: ${{ secrets.SPOTIFYCLIENT }}
           SPOTIFY_SECRET: ${{ secrets.SPOTIFYSECRET }}
         run: echo "" >> ./gradle.properties;
-          echo spotifyClient=\"$SPOTIFY_CLIENT\" >> ./gradle.properties;
-          echo spotifySecret=\"$SPOTIFY_SECRET\" >> ./gradle.properties;
+          echo spotifyClient=\"SPOTIFY_CLIENT\" >> ./gradle.properties;
+          echo spotifySecret=\"SPOTIFY_SECRET\" >> ./gradle.properties;
 
       - name: Unit Test
         run: ./gradlew testDebugUnitTest
