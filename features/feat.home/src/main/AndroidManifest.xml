@@ -6,6 +6,7 @@
         <activity
             android:name="com.cvillaseca.spotifykt.feature.home.presentation.HomeActivity"
             android:label="@string/screen_title"
+            android:exported="true"
             android:theme="@style/Theme.SpotifyKt.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

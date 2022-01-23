@@ -6,6 +6,7 @@ include(":app",
         ":common:base.navigation",
         ":common:base.view",
         ":common:base.debug_tools",
+        ":common:base.test_tools",
         ":shared:lib.spotify_api",
         ":features:feat.home"
 )

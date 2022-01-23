@@ -1,5 +1,6 @@
 package com.cvillaseca.spotifykt.feature.home.presentation.view
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
@@ -14,8 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberImagePainter
 import com.cvillaseca.spotifykt.view.ui.SpotifyKtTheme
-import dev.chrisbanes.accompanist.coil.CoilImage
 
 @Composable
 fun HomeCarouselItem(
@@ -35,8 +36,10 @@ fun HomeCarouselItem(
             Column(
                 modifier = Modifier.width(140.dp)
             ) {
-                CoilImage(
-                    data = image,
+                Image(
+                    painter = rememberImagePainter(
+                        data = image,
+                    ),
                     contentDescription = null,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier

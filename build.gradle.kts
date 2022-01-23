@@ -4,7 +4,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        jcenter()
         maven { url = uri("https://maven.fabric.io/public") }
     }
     dependencies {
@@ -16,7 +15,7 @@ buildscript {
 
 plugins {
     id("io.gitlab.arturbosch.detekt").version(Versions.detekt)
-    id("name.remal.check-dependency-updates").version("1.0.211")
+    id("com.github.ben-manes.versions").version(Versions.gradleVersions)
 }
 
 dependencies {
@@ -32,7 +31,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        jcenter()
         maven { url = uri("https://maven.fabric.io/public") }
         maven { url = uri("https://jitpack.io") }
     }

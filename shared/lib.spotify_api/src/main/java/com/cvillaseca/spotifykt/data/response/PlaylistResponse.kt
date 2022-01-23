@@ -17,8 +17,6 @@ data class PlaylistResponse(
     val images: List<Image>,
     @SerializedName("name")
     val name: String,
-    @SerializedName("owner")
-    val owner: UserResponse,
     @SerializedName("public")
     val public: Boolean?,
     @SerializedName("snapshot_id")

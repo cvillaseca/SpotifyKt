@@ -1,5 +1,5 @@
 object App {
-    val id = "com.cvillaseca.spotifykt"
+    const val id = "com.cvillaseca.spotifykt"
 }
 
 object Modules {
@@ -11,6 +11,7 @@ object Modules {
     const val navigation = ":common:base.navigation"
     const val view = ":common:base.view"
     const val debug_tools = ":common:base.debug_tools"
+    const val test_tools = ":common:base.test_tools"
 
     const val spotify_api = ":shared:lib.spotify_api"
 
@@ -23,35 +24,24 @@ object Releases {
 }
 
 object Versions {
-    const val gradle        = "7.0.0-alpha09"
 
     const val minSdk        = 26
-    const val compileSdk    = 28
-    const val targetSdk     = 28
-
-    const val googleAuth = "16.0.1"
-
-    const val googleServices = "4.2.0"
-
-    const val firebaseAuth = "16.0.4"
-    const val firebaseCore = "16.0.4"
-
-    const val fabric = "1.27.1"
+    const val compileSdk    = 31
+    const val targetSdk     = 31
 
     const val appcompat = "1.2.0"
-    const val materialDesign = "1.2.1"
     const val cardview = "1.0.0"
-    const val recyclerview = "1.0.0"
     const val maps = "15.0.1"
     const val customtabs = "23.3.0"
-    const val constraintLayout = "1.1.2"
 
     const val ktx = "1.2.0"
+    const val gradleVersions        = "0.38.0"
+    const val gradle                = "7.0.4"
 
-    const val kotlin                = "1.4.30"
-    const val retrofit              = "2.7.1"
+    const val kotlin                = "1.5.31"
+    const val retrofit              = "2.9.0"
     const val okhttp                = "4.3.1"
-    const val paperdb               = "2.6"
+    const val paperdb               = "2.7.2"
     const val moshi                 = "1.8.0"
     const val lifecycle             = "2.0.0"
     const val leakCanary            = "1.6.3"
@@ -60,14 +50,15 @@ object Versions {
     const val playCore              = "1.4.0"
     const val junit                 = "4.12"
     const val assertjCore           = "3.12.1"
-    const val mockitoKotlin         = "2.1.0"
+    const val mockk                 = "1.10.6"
     const val timber                = "4.7.1"
-    const val mavericks             = "2.1.0-alpha01"
-    const val compose               = "1.0.0-beta01"
-    const val hilt                  = "2.33-beta"
-    const val epoxy                 = "3.11.0"
-    const val detekt                = "1.14.0"
-    const val coroutines            = "1.4.2"
+    const val mavericks             = "2.5.1"
+    const val compose               = "1.0.5"
+    const val hilt                  = "2.38.1"
+    const val detekt                = "1.16.0"
+    const val coroutines            = "1.4.3"
+    const val materialDesign        = "1.2.1"
+    const val coreTesting        = "2.1.0"
 }
 
 object Libraries {
@@ -82,8 +73,7 @@ object Libraries {
     const val coroutines                = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     const val coroutinesAndroid         = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
 
-    const val paperdb                   = "io.paperdb:paperdb:${Versions.paperdb}"
-    const val moshi                     = "com.squareup.moshi:moshi:${Versions.moshi}"
+    const val paperdb                   = "io.github.pilgr:paperdb:${Versions.paperdb}"
 
     const val ktx                       = "androidx.core:core-ktx:${Versions.ktx}"
     const val activityKtx               = "androidx.activity:activity-ktx:1.1.0"
@@ -95,17 +85,9 @@ object Libraries {
     const val lifecycleExtensions       = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     const val lifecycleCompiler         = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
 
-    const val leakCanaryAndroid         = "com.squareup.leakcanary:leakcanary-android:${Versions.leakCanary}"
-    const val leakCanaryAndroidNoOp     = "com.squareup.leakcanary:leakcanary-android-no-op:${Versions.leakCanary}"
-    const val leakCanaryAndroidSupportFragment = "com.squareup.leakcanary:leakcanary-support-fragment:${Versions.leakCanary}"
-
-    const val crashlytics               = "com.crashlytics.sdk.android:crashlytics:${Versions.crashlytics}"
-
-    const val deeplinkDispatch          = "com.airbnb:deeplinkdispatch:${Versions.deeplinkDispatch}"
-
-    const val flipper                   = "com.facebook.flipper:flipper:0.31.2"
-    const val flipperNetwork            = "com.facebook.flipper:flipper-network-plugin:0.31.2"
-    const val soLoader                  = "com.facebook.soloader:soloader:0.8.2"
+    const val flipper                   = "com.facebook.flipper:flipper:0.80.0"
+    const val flipperNetwork            = "com.facebook.flipper:flipper-network-plugin:0.80.0"
+    const val soLoader                  = "com.facebook.soloader:soloader:0.10.1"
 
     const val mavericks                 = "com.airbnb.android:mavericks-compose:${Versions.mavericks}"
     const val mavericksTesting          = "com.airbnb.android:mavericks-testing:${Versions.mavericks}"
@@ -117,7 +99,7 @@ object Libraries {
 
     const val hilt                      = "com.google.dagger:hilt-android:${Versions.hilt}"
 
-    const val coil                      = "dev.chrisbanes.accompanist:accompanist-coil:0.6.1"
+    const val coil                      = "io.coil-kt:coil-compose:1.4.0"
 }
 
 object AnnotationProcessors {
@@ -127,15 +109,13 @@ object AnnotationProcessors {
 object SupportLibraries {
     const val appcompat                 = "androidx.appcompat:appcompat:${Versions.appcompat}"
     const val cardview                  = "androidx.cardview:cardview:${Versions.cardview}"
-    const val recyclerview              = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     const val customtabs                = "com.android.support:customtabs:${Versions.customtabs}"
-    const val constraintLayout          = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val materialDesign            = "com.google.android.material:material:${Versions.materialDesign}"
 }
 
 object TestLibraries {
     const val junit = "junit:junit:${Versions.junit}"
-    const val assertjCore = "org.assertj:assertj-core:${Versions.assertjCore}"
-    const val mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlin}"
-    const val lifecycleTesting = "androidx.arch.core:core-testing:${Versions.lifecycle}"
+    const val mockk = "io.mockk:mockk:${Versions.mockk}"
+    const val lifecycleTesting = "androidx.arch.core:core-testing:${Versions.coreTesting}"
+    const val coroutinesTests = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
 }

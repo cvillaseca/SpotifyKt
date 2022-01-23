@@ -41,4 +41,8 @@ dependencies {
     implementation Libraries.mavericks
 
     implementation Libraries.coil
+
+    testImplementation project(Modules.test_tools)
+    testImplementation TestLibraries.mockk
+    testImplementation TestLibraries.junit
 }

@@ -6,7 +6,7 @@ data class Image(
     @SerializedName("url")
     val url: String,
     @SerializedName("width")
-    val width: Int,
+    val width: Int?,
     @SerializedName("height")
-    val height: Int
+    val height: Int?
 )

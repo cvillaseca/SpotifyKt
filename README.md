@@ -13,5 +13,5 @@ spotifySecret=YOUR_SECRET
 ### Gradle tasks
 ```
 ./gradlew detektAll //Code analysis.
-./gradlew checkDependencyUpdates //Check dependency updates.
+./gradlew dependencyUpdates -Drevision=release //Check dependency updates.
 ```

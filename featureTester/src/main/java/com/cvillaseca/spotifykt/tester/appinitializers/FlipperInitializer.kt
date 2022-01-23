@@ -2,8 +2,6 @@ package com.cvillaseca.spotifykt.tester.appinitializers
 
 import android.app.Application
 import android.content.IntentFilter
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import com.airbnb.deeplinkdispatch.DeepLinkHandler
 import com.cvillaseca.spotifykt.debugtools.DebugTools
 import com.facebook.flipper.android.AndroidFlipperClient
 import com.facebook.flipper.android.utils.FlipperUtils
@@ -26,9 +24,6 @@ class FlipperInitializer @Inject constructor(
             client.addPlugin(InspectorFlipperPlugin(application, DescriptorMapping.withDefaults()))
             client.addPlugin(networkFlipperPlugin)
             client.start()
-            LocalBroadcastManager
-                .getInstance(application)
-                .registerReceiver(FlipperDeepLinkReceiver(), IntentFilter(DeepLinkHandler.ACTION))
         }
     }
 }
