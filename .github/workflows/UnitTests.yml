@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: macos-latest # or any other machine
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
 
