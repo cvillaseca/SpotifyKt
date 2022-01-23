@@ -14,15 +14,14 @@ import javax.inject.Inject
 
 class GetHomeInfoUseCase @Inject constructor(
     private val api: SpotifyApi
-) : () -> Flow<HomeDomainModel> {
+) {
 
-    override fun invoke(): Flow<HomeDomainModel> = combine(
-        flow { emit(api.categories("US", "en_US", null, null)) },
-        flow { emit(api.newReleases("US", null, null)) },
-        flow { emit(getPlaylists()) }
-    ) { t1, t2, t3 ->
-        HomeDomainModel(t1.categories.items, t2.albums.items, t3)
-    }
+    suspend fun run(): HomeDomainModel =
+        HomeDomainModel(
+            api.categories("US", "en_US", null, null).categories.items,
+            api.newReleases("US", null, null).albums.items,
+            getPlaylists()
+        )
 
     private suspend fun getPlaylists(): FeaturedPlaylistsResponse {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.US)

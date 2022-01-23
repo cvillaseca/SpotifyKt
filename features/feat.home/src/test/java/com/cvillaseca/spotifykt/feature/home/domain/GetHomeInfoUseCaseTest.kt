@@ -50,7 +50,7 @@ internal class GetHomeInfoUseCaseTest {
         } returns expectedPlaylists
 
         runBlocking {
-            val homeDomainModel = useCase.invoke().first()
+            val homeDomainModel = useCase.run()
             assertEquals(expectedCategories.categories.items, homeDomainModel.categories)
             assertEquals(expectedNewReleases.albums.items, homeDomainModel.newReleases)
             assertEquals(expectedPlaylists, homeDomainModel.featuredPlaylists)

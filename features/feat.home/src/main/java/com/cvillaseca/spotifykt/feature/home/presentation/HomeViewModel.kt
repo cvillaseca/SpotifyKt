@@ -19,7 +19,9 @@ class HomeViewModel @AssistedInject constructor(
     }
 
     fun loadInfo() {
-        useCase.invoke().execute {
+        suspend {
+            useCase.run()
+        }.execute {
             copy(homeInfo = it)
         }
     }

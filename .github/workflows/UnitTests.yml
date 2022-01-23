@@ -17,9 +17,6 @@ jobs:
           java-version: 11
 
       - name: Create gradle.properties
-        env:
-          SPOTIFY_CLIENT: ${{ secrets.SPOTIFYCLIENT }}
-          SPOTIFY_SECRET: ${{ secrets.SPOTIFYSECRET }}
         run: echo "" >> ./gradle.properties;
           echo spotifyClient=\"SPOTIFY_CLIENT\" >> ./gradle.properties;
           echo spotifySecret=\"SPOTIFY_SECRET\" >> ./gradle.properties;

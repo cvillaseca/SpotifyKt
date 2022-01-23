@@ -6,6 +6,7 @@ import com.cvillaseca.spotifykt.network.NetworkConstants
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import okhttp3.Authenticator
 import okhttp3.Request
 import okhttp3.Response
@@ -16,9 +17,7 @@ import kotlin.coroutines.CoroutineContext
 
 class NetworkAuthenticator @Inject constructor(
     private val oAuthAccessTokenRepository: OAuthAccessTokenRepository
-) : Authenticator, CoroutineScope {
-
-    override val coroutineContext: CoroutineContext = Dispatchers.IO
+) : Authenticator {
 
     override fun authenticate(route: Route?, response: Response): Request {
         val clientId = BuildConfig.SPOTIFY_CLIENT
@@ -26,14 +25,12 @@ class NetworkAuthenticator @Inject constructor(
         val base64auth = Base64.encodeToString("$clientId:$secret".toByteArray(), Base64.NO_WRAP)
         val authStr = NetworkConstants.BASIC + " $base64auth"
 
-        var tokenStr: String? = null
+//        var tokenStr: String? = null
         Timber.tag("NetworkAuthenticator").d("Authenticating ${response.request.url}")
-        launch {
+        val tokenStr = runBlocking {
             val responseToken = oAuthAccessTokenRepository.getToken(authStr)
-            if (responseToken != null) {
-                tokenStr = responseToken.accessToken
-                oAuthAccessTokenRepository.storeToken(responseToken)
-            }
+            oAuthAccessTokenRepository.storeToken(responseToken)
+            responseToken.accessToken
         }
         Timber.tag("NetworkAuthenticator").d("Token applied $tokenStr")
 
