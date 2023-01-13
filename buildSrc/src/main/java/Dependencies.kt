@@ -34,7 +34,7 @@ object Versions {
     const val customtabs            = "23.3.0"
 
     const val gradleVersions        = "0.41.0"
-    const val gradle                = "7.0.4"
+    const val gradle                = "7.3.1"
 
     const val kotlin                = "1.5.31"
     const val retrofit              = "2.9.0"
