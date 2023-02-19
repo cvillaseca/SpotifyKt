@@ -46,7 +46,7 @@ internal class GetHomeInfoUseCaseTest {
         } returns expectedNewReleases
 
         coEvery {
-            mockSpotifyApi.featuredPlaylists(any(), any(), any(),any(), any())
+            mockSpotifyApi.featuredPlaylists(any(), any(), any(), any(), any())
         } returns expectedPlaylists
 
         runBlocking {

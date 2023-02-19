@@ -6,7 +6,5 @@
     <ID>MagicNumber:Color.kt$0xFF3700B3</ID>
     <ID>MagicNumber:Color.kt$0xFF6200EE</ID>
     <ID>MagicNumber:Color.kt$0xFFBB86FC</ID>
-    <ID>UnnecessaryAbstractClass:AppInitializersModule.kt$AppInitializersModule$AppInitializersModule</ID>
-    <ID>UnnecessaryAbstractClass:MvRxViewModel.kt$MvRxViewModel$MvRxViewModel</ID>
   </CurrentIssues>
 </SmellBaseline>
