@@ -1,8 +1,0 @@
-apply from: "$rootDir/common-android-library.gradle"
-
-dependencies {
-    implementation project(Modules.debug_tools)
-
-    implementation Libraries.activityKtx
-    implementation Libraries.mavericks
-}

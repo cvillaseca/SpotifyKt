@@ -1,0 +1,21 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.hilt)
+}
+
+android {
+    namespace = "com.cvillaseca.spotifykt.spotifyapi"
+}
+
+dependencies {
+    implementation(projects.common.cache)
+    implementation(projects.common.network)
+
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gsonConverter)
+    implementation(libs.hilt)
+
+    kapt(libs.hilt.compiler)
+}
