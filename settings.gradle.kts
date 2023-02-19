@@ -1,12 +1,32 @@
-include(":app",
-        ":featureTester",
-        ":common:base.cache",
-        ":common:base.network",
-        ":common:base.presentation",
-        ":common:base.navigation",
-        ":common:base.view",
-        ":common:base.debug_tools",
-        ":common:base.test_tools",
-        ":shared:lib.spotify_api",
-        ":features:feat.home"
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+
+plugins {
+    id("com.gradle.enterprise") version "3.12.3"
+}
+
+gradleEnterprise {
+    buildScan {
+        termsOfServiceUrl = "https://gradle.com/terms-of-service"
+        termsOfServiceAgree = "yes"
+        publishAlways()
+    }
+}
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
+include(
+    ":app",
+    ":common:cache",
+    ":common:network",
+    ":common:presentation",
+    ":common:test_tools",
+    ":common:view",
+    ":shared:spotify_api",
+    ":features:home"
 )

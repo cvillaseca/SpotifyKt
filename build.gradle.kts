@@ -1,67 +1,65 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url = uri("https://maven.fabric.io/public") }
-    }
-    dependencies {
-        classpath("com.android.tools.build:gradle:${Versions.gradle}")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}")
-        classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.hilt}")
-    }
-}
+import org.jetbrains.kotlin.gradle.plugin.KaptExtension
+import com.android.build.gradle.BaseExtension
+import io.gitlab.arturbosch.detekt.Detekt
+import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 
 plugins {
-    id("io.gitlab.arturbosch.detekt").version(Versions.detekt)
-    id("com.github.ben-manes.versions").version(Versions.gradleVersions)
-}
-
-dependencies {
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:${Versions.detekt}")
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.android.lint) apply false
+    alias(libs.plugins.detekt) apply false
+    alias(libs.plugins.hilt) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.kapt) apply false
+    alias(libs.plugins.versions) apply false
 }
 
 allprojects {
-
-    configurations.all {
-        resolutionStrategy.force(Libraries.kotlin)
-    }
+    apply(plugin = "io.gitlab.arturbosch.detekt")
 
     repositories {
         google()
         mavenCentral()
-        maven { url = uri("https://maven.fabric.io/public") }
-        maven { url = uri("https://jitpack.io") }
+    }
+
+    // Configure kapt
+    pluginManager.withPlugin(rootProject.libs.plugins.kotlin.kapt.get().pluginId) {
+        extensions.getByType<KaptExtension>().correctErrorTypes = true
+    }
+
+    // Configure Android projects
+    pluginManager.withPlugin("com.android.application") {
+        configureAndroidProject()
+    }
+    pluginManager.withPlugin("com.android.library") {
+        configureAndroidProject()
+    }
+    pluginManager.withPlugin("com.android.test") {
+        configureAndroidProject()
     }
 }
 
-tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
-}
+fun Project.configureAndroidProject() {
+    extensions.configure<BaseExtension> {
+        compileSdkVersion(libs.versions.compileSdk.get().toInt())
 
-val detektAll by tasks.registering(io.gitlab.arturbosch.detekt.Detekt::class) {
-    description = "Runs over whole code base without the starting overhead for each module."
-    autoCorrect = true
-    parallel = true
-    setSource(files(projectDir))
-    include("**/*.kt")
-    include("**/*.kts")
-    exclude("**/resources/**")
-    exclude("**/build/**")
-    exclude("**/buildSrc/**")
-    exclude("**/test/**/*.kt")
-    config.setFrom(files("$rootDir/config/detekt/detekt.yml"))
-    baseline.set(file("$rootDir/config/detekt/baseline.xml"))
-    reports {
-        xml.enabled = false
-        html.enabled = false
-        txt.enabled = false
+        defaultConfig {
+            minSdk = libs.versions.minSdk.get().toInt()
+            targetSdk = libs.versions.targetSdk.get().toInt()
+        }
+
+        // Can remove this once https://issuetracker.google.com/issues/260059413 is fixed.
+        // See https://kotlinlang.org/docs/gradle-configure-project.html#gradle-java-toolchains-support
+        compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_11
+            targetCompatibility = JavaVersion.VERSION_11
+        }
     }
 }
 
-val detektProjectBaseline by tasks.registering(io.gitlab.arturbosch.detekt.DetektCreateBaselineTask::class) {
+val detektProjectBaseline by tasks.registering(DetektCreateBaselineTask::class) {
     description = "Overrides current baseline."
+    buildUponDefaultConfig.set(true)
     ignoreFailures.set(true)
     parallel.set(true)
     setSource(files(rootDir))
@@ -71,6 +69,4 @@ val detektProjectBaseline by tasks.registering(io.gitlab.arturbosch.detekt.Detek
     include("**/*.kts")
     exclude("**/resources/**")
     exclude("**/build/**")
-    exclude("**/buildSrc/**")
-    exclude("**/test/**/*.kt")
 }
