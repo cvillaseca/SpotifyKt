@@ -6,11 +6,8 @@ import com.cvillaseca.spotifykt.data.response.FeaturedPlaylistsResponse
 import com.cvillaseca.spotifykt.data.response.NewReleasesResponse
 import com.cvillaseca.spotifykt.testtools.CoroutineTestRule
 import io.mockk.coEvery
-import io.mockk.every
 import io.mockk.mockk
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Rule
@@ -49,7 +46,7 @@ internal class GetHomeInfoUseCaseTest {
             mockSpotifyApi.featuredPlaylists(any(), any(), any(), any(), any())
         } returns expectedPlaylists
 
-        runBlocking {
+        runTest {
             val homeDomainModel = useCase.run()
             assertEquals(expectedCategories.categories.items, homeDomainModel.categories)
             assertEquals(expectedNewReleases.albums.items, homeDomainModel.newReleases)

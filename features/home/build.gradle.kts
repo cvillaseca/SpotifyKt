@@ -21,6 +21,7 @@ dependencies {
     implementation(projects.common.cache)
     implementation(projects.common.network)
     implementation(projects.common.presentation)
+    implementation(projects.common.testTools)
     implementation(projects.common.view)
     implementation(projects.shared.spotifyApi)
 

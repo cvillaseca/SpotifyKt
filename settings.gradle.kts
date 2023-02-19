@@ -25,6 +25,7 @@ include(
     ":common:cache",
     ":common:network",
     ":common:presentation",
+    ":common:test_tools",
     ":common:view",
     ":shared:spotify_api",
     ":features:home"
