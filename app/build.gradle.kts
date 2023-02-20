@@ -74,7 +74,6 @@ dependencies {
     implementation(libs.timber)
     implementation(libs.okhttp)
     implementation(libs.retrofit)
-    implementation(libs.mavericks)
     implementation(libs.compose.ui.ui)
     implementation(libs.flipper)
     implementation(libs.flipper.network)

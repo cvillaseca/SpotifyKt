@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.cvillaseca.spotifykt.home"
+    namespace = "com.cvillaseca.spotifykt.feature.home"
 
     buildFeatures {
         compose = true
@@ -25,6 +25,8 @@ dependencies {
     implementation(projects.common.view)
     implementation(projects.shared.spotifyApi)
 
+    implementation(libs.androidx.activity.compose)
+//    implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.coil.compose)
     implementation(libs.compose.material.material)
     implementation(libs.compose.ui.tooling)
@@ -32,7 +34,6 @@ dependencies {
     implementation(libs.hilt)
     implementation(libs.kotlin.coroutines.core)
     implementation(libs.kotlin.coroutines.android)
-    implementation(libs.mavericks)
 
     kapt(libs.hilt.compiler)
 

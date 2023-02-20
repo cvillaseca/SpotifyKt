@@ -37,7 +37,6 @@ fun SpotifyKtTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composa
 
     MaterialTheme(
         colors = colors,
-        typography = typography,
         shapes = shapes,
         content = content
     )

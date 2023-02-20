@@ -18,7 +18,6 @@ kotlin = "1.8.10"
 retrofit = "2.9.0"
 okhttp = "4.10.0"
 paperdb = "2.7.2"
-mavericks = "2.6.1"
 hilt = "2.44"
 coroutines = "1.6.4"
 coreTesting = "2.1.0"
@@ -102,9 +101,6 @@ kotlin-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-te
 kotlin-extensions = { module = "org.jetbrains.kotlin:kotlin-android-extensions", version.ref = "kotlin" }
 
 leakCanary = "com.squareup.leakcanary:leakcanary-android:2.10"
-
-mavericks = { module = "com.airbnb.android:mavericks-compose", version.ref = "mavericks" }
-mavericks-testing = { module = "com.airbnb.android:mavericks-testing", version.ref = "mavericks" }
 
 mockk = "io.mockk:mockk:1.13.4"
 

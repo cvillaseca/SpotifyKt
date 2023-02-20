@@ -4,9 +4,6 @@ import com.cvillaseca.spotifykt.data.SpotifyApi
 import com.cvillaseca.spotifykt.data.response.AlbumResponse
 import com.cvillaseca.spotifykt.data.response.CategoryResponse
 import com.cvillaseca.spotifykt.data.response.FeaturedPlaylistsResponse
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.flow
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -14,9 +11,9 @@ import javax.inject.Inject
 
 class GetHomeInfoUseCase @Inject constructor(
     private val api: SpotifyApi
-) {
+): suspend () -> HomeDomainModel {
 
-    suspend fun run(): HomeDomainModel =
+    override suspend fun invoke(): HomeDomainModel =
         HomeDomainModel(
             api.categories("US", "en_US", null, null).categories.items,
             api.newReleases("US", null, null).albums.items,

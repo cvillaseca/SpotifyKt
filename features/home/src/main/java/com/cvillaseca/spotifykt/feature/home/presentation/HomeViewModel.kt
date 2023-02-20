@@ -1,36 +1,63 @@
 package com.cvillaseca.spotifykt.feature.home.presentation
 
-import com.airbnb.mvrx.MavericksViewModel
-import com.airbnb.mvrx.MavericksViewModelFactory
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.cvillaseca.spotifykt.feature.home.R
 import com.cvillaseca.spotifykt.feature.home.domain.GetHomeInfoUseCase
-import com.cvillaseca.spotifykt.presentation.di.AssistedViewModelFactory
-import com.cvillaseca.spotifykt.presentation.di.hiltMavericksViewModelFactory
-import dagger.assisted.Assisted
-import dagger.assisted.AssistedFactory
-import dagger.assisted.AssistedInject
+import com.cvillaseca.spotifykt.feature.home.domain.HomeDomainModel
+import com.cvillaseca.spotifykt.presentation.state.StringResource
+import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeViewModel @AssistedInject constructor(
-    @Assisted state: HomeState,
+@HiltViewModel
+class HomeViewModel @Inject constructor(
     private val useCase: GetHomeInfoUseCase
-) : MavericksViewModel<HomeState>(state) {
+) : ViewModel() {
+
+    private val _state = MutableStateFlow(HomeState(isLoading = true))
+    val uiState: StateFlow<HomeState>
+        get() = _state.asStateFlow()
 
     init {
         loadInfo()
     }
 
-    fun loadInfo() {
-        suspend {
-            useCase.run()
-        }.execute {
-            copy(homeInfo = it)
+    private fun loadInfo() {
+        viewModelScope.launch {
+            _state.value = useCase().toUIState()
         }
     }
 
-    @AssistedFactory
-    interface Factory : AssistedViewModelFactory<HomeViewModel, HomeState> {
-        override fun create(state: HomeState): HomeViewModel
-    }
+    private fun HomeDomainModel.toUIState(): HomeState {
+        val featured = Section(
+            name = StringResource.Raw(featuredPlaylists.message),
+            items = featuredPlaylists.playlists.items.map {
+                Item(it.id, it.name, it.images.firstOrNull()?.url)
+            }
+        )
 
-    companion object :
-        MavericksViewModelFactory<HomeViewModel, HomeState> by hiltMavericksViewModelFactory()
+        val categories = Section(
+            name = StringResource.Id(R.string.categories),
+            items = categories.map {
+                Item(it.id, it.name, it.icons.firstOrNull()?.url)
+            }
+        )
+
+        val newReleases = Section(
+            name = StringResource.Id(R.string.new_releases),
+            items = newReleases.map {
+                Item(it.id, it.name, it.images.firstOrNull()?.url)
+            }
+        )
+
+        return HomeState(
+            featured = featured,
+            categories = categories,
+            newReleases = newReleases
+        )
+    }
 }
