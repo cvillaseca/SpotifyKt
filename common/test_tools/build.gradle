@@ -1,0 +1,13 @@
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+}
+
+android {
+    namespace = "com.cvillaseca.spotifykt.testtools"
+}
+
+dependencies {
+    api(libs.kotlin.coroutines.test)
+    implementation(libs.junit)
+}
