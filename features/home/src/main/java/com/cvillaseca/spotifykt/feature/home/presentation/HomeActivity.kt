@@ -21,6 +21,7 @@ class HomeActivity : ComponentActivity() {
             SpotifyKtTheme {
                 HomeScreen(state, object: HomeAction {
                     override fun onSearchClick() {
+                        TODO("Not yet implemented")
                     }
 
                     override fun onFeatureClick() {
