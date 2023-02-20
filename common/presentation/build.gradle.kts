@@ -20,7 +20,6 @@ android {
 dependencies {
     implementation(libs.compose.ui.ui)
     implementation(libs.hilt)
-    implementation(libs.mavericks)
 
     kapt(libs.hilt.compiler)
 }

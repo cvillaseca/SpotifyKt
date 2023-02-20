@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
 import androidx.compose.material.Card
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,45 +16,43 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
 import com.cvillaseca.spotifykt.view.ui.SpotifyKtTheme
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun HomeCarouselItem(
     modifier: Modifier = Modifier,
     id: Int,
     name: String,
-    image: String,
+    image: String?,
     onClick: (Int) -> Unit
 ) {
-
-    Button(
+    Card(
         onClick = { onClick(id) },
-        modifier = modifier,
-        contentPadding = PaddingValues(0.dp)
+        modifier = modifier
     ) {
-        Card {
-            Column(
-                modifier = Modifier.width(140.dp)
-            ) {
-                Image(
-                    painter = rememberImagePainter(
-                        data = image,
-                    ),
-                    contentDescription = null,
-                    contentScale = ContentScale.Crop,
-                    modifier = Modifier
-                        .size(140.dp)
-                        .padding(0.dp)
-                )
-                Text(
-                    text = name,
-                    modifier = Modifier
-                        .align(Alignment.Start)
-                        .padding(8.dp),
-                    maxLines = 2
-                )
-            }
+        Column(
+            modifier = Modifier.width(140.dp)
+        ) {
+            Image(
+                painter = rememberAsyncImagePainter(
+                    model = image,
+                ),
+                contentDescription = name,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .size(140.dp)
+                    .padding(0.dp)
+            )
+            Text(
+                text = name,
+                modifier = Modifier
+                    .align(Alignment.Start)
+                    .padding(8.dp),
+                maxLines = 2
+            )
         }
     }
 }

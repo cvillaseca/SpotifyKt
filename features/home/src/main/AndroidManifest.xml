@@ -3,7 +3,7 @@
 
     <application>
         <activity
-            android:name="com.cvillaseca.spotifykt.feature.home.presentation.HomeActivity"
+            android:name=".presentation.HomeActivity"
             android:label="@string/screen_title"
             android:exported="true">
             <intent-filter>

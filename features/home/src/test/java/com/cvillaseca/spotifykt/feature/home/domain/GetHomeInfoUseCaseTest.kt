@@ -47,7 +47,7 @@ internal class GetHomeInfoUseCaseTest {
         } returns expectedPlaylists
 
         runTest {
-            val homeDomainModel = useCase.run()
+            val homeDomainModel = useCase()
             assertEquals(expectedCategories.categories.items, homeDomainModel.categories)
             assertEquals(expectedNewReleases.albums.items, homeDomainModel.newReleases)
             assertEquals(expectedPlaylists, homeDomainModel.featuredPlaylists)

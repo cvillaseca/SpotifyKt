@@ -2,14 +2,34 @@ package com.cvillaseca.spotifykt.feature.home.presentation
 
 import android.net.Uri
 import androidx.annotation.StringRes
-import com.airbnb.mvrx.Async
-import com.airbnb.mvrx.MavericksState
-import com.airbnb.mvrx.Uninitialized
-import com.cvillaseca.spotifykt.feature.home.domain.HomeDomainModel
+import androidx.compose.runtime.Immutable
+import com.cvillaseca.spotifykt.presentation.state.StringResource
 
+@Immutable
 data class HomeState(
-    val homeInfo: Async<HomeDomainModel> = Uninitialized
-) : MavericksState
+    val isLoading: Boolean = false,
+    val featured: Section? = null,
+    val categories: Section? = null,
+    val newReleases: Section? = null
+)
+
+data class Section(
+    val name: StringResource,
+    val items: List<Item>
+)
+
+data class Item(
+    val id: String,
+    val name: String,
+    val image: String?
+)
+
+interface HomeAction {
+    fun onSearchClick()
+    fun onFeatureClick()
+    fun onCategoryClick()
+    fun onNewReleaseClick()
+}
 
 sealed class HomeSideEffect {
     data class Snackbar(

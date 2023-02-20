@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="screen_title">SpotifyKt</string>
+    <string name="categories">Categories</string>
+    <string name="new_releases">New Releases</string>
 </resources>
